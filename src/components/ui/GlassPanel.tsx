@@ -3,7 +3,11 @@ import { motion, type HTMLMotionProps } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 // ---------- HUD Corner Decorations ----------
-function HUDCorners({ accent = 'cyan' }: { accent?: 'cyan' | 'teal' | 'magenta' | 'violet' }) {
+function HUDCorners({
+  accent = 'cyan',
+}: {
+  accent?: 'cyan' | 'teal' | 'magenta' | 'violet';
+}) {
   const accentColor = {
     cyan: 'border-cyan',
     teal: 'border-teal',
@@ -15,19 +19,39 @@ function HUDCorners({ accent = 'cyan' }: { accent?: 'cyan' | 'teal' | 'magenta' 
   return (
     <>
       <span
-        className={cn('absolute -top-px -left-px border-t-2 border-l-2', size, accentColor, 'opacity-60')}
+        className={cn(
+          'absolute -top-px -left-px border-t-2 border-l-2',
+          size,
+          accentColor,
+          'opacity-60'
+        )}
         aria-hidden="true"
       />
       <span
-        className={cn('absolute -top-px -right-px border-t-2 border-r-2', size, accentColor, 'opacity-60')}
+        className={cn(
+          'absolute -top-px -right-px border-t-2 border-r-2',
+          size,
+          accentColor,
+          'opacity-60'
+        )}
         aria-hidden="true"
       />
       <span
-        className={cn('absolute -bottom-px -left-px border-b-2 border-l-2', size, accentColor, 'opacity-60')}
+        className={cn(
+          'absolute -bottom-px -left-px border-b-2 border-l-2',
+          size,
+          accentColor,
+          'opacity-60'
+        )}
         aria-hidden="true"
       />
       <span
-        className={cn('absolute -bottom-px -right-px border-b-2 border-r-2', size, accentColor, 'opacity-60')}
+        className={cn(
+          'absolute -bottom-px -right-px border-b-2 border-r-2',
+          size,
+          accentColor,
+          'opacity-60'
+        )}
         aria-hidden="true"
       />
     </>
@@ -46,6 +70,8 @@ export interface GlassPanelProps extends HTMLMotionProps<'div'> {
   scanning?: boolean;
   /** Border tint */
   borderAccent?: boolean;
+  /** Explicit React children (narrowed from motion values) */
+  children?: React.ReactNode;
 }
 
 export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
@@ -109,6 +135,7 @@ GlassPanel.displayName = 'GlassPanel';
 export interface HUDFrameProps extends React.HTMLAttributes<HTMLDivElement> {
   label?: string;
   accent?: 'cyan' | 'teal' | 'magenta' | 'violet';
+  children?: React.ReactNode;
 }
 
 export const HUDFrame = React.forwardRef<HTMLDivElement, HUDFrameProps>(

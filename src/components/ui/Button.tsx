@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 
 // ---------- Button Variants ----------
 const buttonVariants = cva(
-  // Base styles
   'relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-abyss disabled:pointer-events-none disabled:opacity-40 select-none',
   {
     variants: {
@@ -50,7 +49,7 @@ const buttonVariants = cva(
 
 // ---------- Types ----------
 export interface ButtonProps
-  extends Omit<HTMLMotionProps<'button'>, 'children'>,
+  extends Omit<HTMLMotionProps<'button'>, 'children' | 'ref'>,
     VariantProps<typeof buttonVariants> {
   children?: React.ReactNode;
   loading?: boolean;
@@ -59,13 +58,17 @@ export interface ButtonProps
   magnetic?: boolean;
 }
 
-// ---------- Magnetic Wrapper ----------
-function useMagnetic(ref: React.RefObject<HTMLButtonElement | null>, enabled: boolean) {
+// ---------- Magnetic Hook ----------
+function useMagnetic(
+  ref: React.RefObject<HTMLButtonElement | null>,
+  enabled: boolean
+) {
   const [offset, setOffset] = React.useState({ x: 0, y: 0 });
 
   React.useEffect(() => {
-    if (!enabled || !ref.current) return;
+    if (!enabled) return;
     const el = ref.current;
+    if (!el) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = el.getBoundingClientRect();
@@ -104,17 +107,30 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       magnetic = false,
       ...props
     },
-    ref
+    forwardedRef
   ) => {
-    const internalRef = React.useRef<HTMLButtonElement>(null);
-    const resolvedRef = (ref as React.RefObject<HTMLButtonElement | null>) || internalRef;
-    const offset = useMagnetic(resolvedRef, magnetic);
+    const internalRef = React.useRef<HTMLButtonElement | null>(null);
+
+    // Compose the internal ref with the forwarded ref
+    const setRef = React.useCallback(
+      (node: HTMLButtonElement | null) => {
+        internalRef.current = node;
+        if (typeof forwardedRef === 'function') {
+          forwardedRef(node);
+        } else if (forwardedRef) {
+          (forwardedRef as React.MutableRefObject<HTMLButtonElement | null>).current = node;
+        }
+      },
+      [forwardedRef]
+    );
+
+    const offset = useMagnetic(internalRef, magnetic);
 
     const isDisabled = disabled || loading;
 
     return (
       <motion.button
-        ref={resolvedRef}
+        ref={setRef}
         className={cn(buttonVariants({ variant, size, fullWidth, className }))}
         disabled={isDisabled}
         animate={magnetic ? { x: offset.x, y: offset.y } : undefined}

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
@@ -181,7 +180,10 @@ export function SignalBars({
   className?: string;
 }) {
   return (
-    <div className={cn('flex items-end gap-0.5 h-3', className)} aria-label={`Signal ${strength} of 4`}>
+    <div
+      className={cn('flex items-end gap-0.5 h-3', className)}
+      aria-label={`Signal ${strength} of 4`}
+    >
       {[1, 2, 3, 4].map((bar) => (
         <div
           key={bar}
