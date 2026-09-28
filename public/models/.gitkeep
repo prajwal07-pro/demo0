@@ -1,0 +1,33 @@
+# ORCA 3D Model Assets
+#
+# This directory hosts the GLB/GLTF model assets loaded by the
+# React Three Fiber components in `src/components/3d/`.
+#
+# Expected assets (create or drop in as they become available):
+#
+#   orca.glb              — flagship orca model
+#   cargo-ship.glb        — bulk/container cargo vessel
+#   tanker.glb            — oil/chemical tanker
+#   fishing-boat.glb      — commercial fishing vessel
+#   passenger-ship.glb    — ferry / cruise vessel
+#   research-vessel.glb   — oceanographic research vessel
+#   tug-boat.glb          — harbor tug
+#   pleasure-craft.glb    — yacht / sailboat
+#   military-ship.glb     — patrol vessel
+#   satellite.glb         — Earth observation satellite
+#   buoy.glb              — oceanographic buoy
+#   underwater-sensor.glb — moored subsurface sensor
+#   submarine.glb         — AUV / submarine
+#   marine-drone.glb      — aerial/surface hybrid drone
+#   earth.glb             — high-fidelity Earth (optional)
+#
+# Recommended pipeline:
+#   - Blender export → glTF 2.0 Binary (.glb)
+#   - Draco mesh compression ON
+#   - KTX2 texture compression ON
+#   - Y-up, meters, centered at origin
+#   - Max 1 material per mesh where possible
+#
+# The components in `src/components/3d/` already accept a `url` prop.
+# When a GLB is available, simply pass the path and the procedural
+# fallback will be replaced with the loaded model automatically.

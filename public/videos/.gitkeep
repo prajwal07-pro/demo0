@@ -1,0 +1,16 @@
+# ORCA Cinematic Video Assets
+#
+# Short educational and brand films for the Learning Lab and Hero:
+#
+#   hero-loop.mp4               — 6-12s loop for hero section
+#   how-satellites-read-ocean.mp4
+#   how-ais-works.mp4
+#   understanding-sst.mp4
+#   understanding-pfz.mp4
+#   inside-orca.mp4
+#
+# Each should ship with:
+#   - .vtt WebVTT captions file
+#   - poster image (.jpg) for lazy loading
+#   - H.264 baseline for widest compatibility
+#   - AV1 or VP9 alternative for modern browsers
