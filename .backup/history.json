@@ -1,0 +1,1386 @@
+[
+  {
+    "id": "2026-09-29_22-09-57",
+    "timestamp": "2026-09-29 22:09:57",
+    "type": "apply",
+    "count": 1,
+    "files": [
+      {
+        "path": "src/components/maps/MapControls.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_22-09-38",
+    "timestamp": "2026-09-29 22:09:38",
+    "type": "apply",
+    "count": 3,
+    "files": [
+      {
+        "path": "src/components/3d/SatelliteModel.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/SubmarineModel.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/CameraRig.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_22-08-42",
+    "timestamp": "2026-09-29 22:08:42",
+    "type": "apply",
+    "count": 4,
+    "files": [
+      {
+        "path": "src/components/charts/Sparkline.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/charts/DonutChart.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/OrcaModel.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/VesselModel.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_22-06-45",
+    "timestamp": "2026-09-29 22:06:45",
+    "type": "apply",
+    "count": 5,
+    "files": [
+      {
+        "path": "vite.config.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/SceneLoader.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/EarthGlobe.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/OceanCurrentField.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/maps/VesselMarker.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_22-05-31",
+    "timestamp": "2026-09-29 22:05:31",
+    "type": "apply",
+    "count": 5,
+    "files": [
+      {
+        "path": "src/components/3d/UnderwaterSensor.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/BuoyModel.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/MarineDrone.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/MarineEnvironment.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/DataParticles.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_22-04-16",
+    "timestamp": "2026-09-29 22:04:16",
+    "type": "apply",
+    "count": 2,
+    "files": [
+      {
+        "path": ".env.example",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/OceanScene.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_21-56-45",
+    "timestamp": "2026-09-29 21:56:45",
+    "type": "apply",
+    "count": 19,
+    "files": [
+      {
+        "path": "src/hooks/useAlerts.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useDebouncedValue.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/media/LearningReel.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Card.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useVessels.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useOceanLayer.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useLenis.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useMediaQuery.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/usePagination.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useSortableData.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useScrollRestoration.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useIntersectionObserver.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useResizeObserver.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useAppReady.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useQuality.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/lib/queryKeys.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/lib/telemetry.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/lib/formatters.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/lib/csv.ts",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_21-55-38",
+    "timestamp": "2026-09-29 21:55:38",
+    "type": "apply",
+    "count": 11,
+    "files": [
+      {
+        "path": "src/components/ui/Toaster.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/media/CinematicSection.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/media/VideoHero.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/media/VideoCard.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/charts/BarChart.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/charts/LineChart.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/tables/DataTable.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/filters/FilterPanel.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/dashboard/KPIStrip.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/forms/Wizard.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/forms/Field.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_21-54-18",
+    "timestamp": "2026-09-29 21:54:18",
+    "type": "apply",
+    "count": 9,
+    "files": [
+      {
+        "path": "src/components/sections/WhyOrca.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/OceanData.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/IntelligenceArchitecture.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/ConfirmDialog.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Skeleton.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Kbd.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Breadcrumbs.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/services/mockData.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/services/authService.ts",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_21-52-09",
+    "timestamp": "2026-09-29 21:52:09",
+    "type": "apply",
+    "count": 15,
+    "files": [
+      {
+        "path": "src/hooks/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/filters/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/3d/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/providers/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useDebouncedValue.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useAlerts.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useVesselSelection.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useHotkeys.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/useAuth.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/lib/constants.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/lib/env.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/LearningPreview.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/SimulationsPreview.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/AIAssistantPreview.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_21-50-37",
+    "timestamp": "2026-09-29 21:50:37",
+    "type": "apply",
+    "count": 18,
+    "files": [
+      {
+        "path": "src/components/navigation/Footer.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/LiveMap.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/About.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Auth.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/NotFound.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/chat/AgentPanel.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/PageShell.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/store/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/lib/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Dialog.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/DropdownMenu.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Tooltip.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Tabs.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/ScrollArea.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Progress.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Avatar.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-54-00",
+    "timestamp": "2026-09-29 18:54:00",
+    "type": "apply",
+    "count": 21,
+    "files": [
+      {
+        "path": "src/pages/Learning.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Games.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Community.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Simulations.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/AIAssistant.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Alerts.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Profile.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Explorer.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/navigation/RouteGuard.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/navigation/CommandPalette.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/OfflineBanner.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/NavigationProgress.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/ShortcutsOverlay.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Sheet.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/vessels/VesselDetailSheet.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/chat/ChatInput.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/chat/ChatMessage.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Toaster.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/EmptyState.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/SectionHeader.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/DataIntegrityBanner.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-49-39",
+    "timestamp": "2026-09-29 18:49:39",
+    "type": "apply",
+    "count": 9,
+    "files": [
+      {
+        "path": "src/store/useAppStore.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/providers/ThemeProvider.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/navigation/Sidebar.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/navigation/Navbar.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/AppLayout.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/AmbientBackground.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Settings.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/index.css",
+        "status": "modified"
+      },
+      {
+        "path": "index.html",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-33-28",
+    "timestamp": "2026-09-29 18:33:28",
+    "type": "apply",
+    "count": 10,
+    "files": [
+      {
+        "path": "src/components/providers/ThemeProvider.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/layout/ShortcutsOverlay.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/layout/AmbientBackground.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/ConfirmDialog.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/chat/FileDropZone.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/chat/VoiceInputButton.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/chat/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/AppLayout.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/App.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-32-33",
+    "timestamp": "2026-09-29 18:32:33",
+    "type": "apply",
+    "count": 11,
+    "files": [
+      {
+        "path": "src/components/3d/SceneLoader.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/3d/CameraRig.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useHotkeys.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/Kbd.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/Breadcrumbs.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/errors/ServiceUnavailablePanel.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/errors/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/lib/telemetry.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/usePageView.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/sections/DataIntegrityBanner.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/sections/index.ts",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-31-58",
+    "timestamp": "2026-09-29 18:31:58",
+    "type": "apply",
+    "count": 12,
+    "files": [
+      {
+        "path": "src/components/navigation/RouteGuard.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/sections/SectionHeader.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/lib/csv.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useSortableData.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/usePagination.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/tables/DataTable.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/tables/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/filters/FilterPanel.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/filters/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/dashboard/KPIStrip.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/dashboard/BentoGrid.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/dashboard/index.ts",
+        "status": "new"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-31-13",
+    "timestamp": "2026-09-29 18:31:13",
+    "type": "apply",
+    "count": 11,
+    "files": [
+      {
+        "path": "src/hooks/useAuth.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useAlerts.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useVesselSelection.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/vessels/VesselDetailSheet.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/vessels/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useLocalDraft.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/forms/Wizard.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/forms/Field.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/forms/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/ScrollArea.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/index.ts",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-30-37",
+    "timestamp": "2026-09-29 18:30:37",
+    "type": "apply",
+    "count": 10,
+    "files": [
+      {
+        "path": "src/lib/env.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useFeatureFlag.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useVessels.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useOceanLayer.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useWeather.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/media/VideoHero.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/media/CinematicSection.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/media/VideoCard.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/media/LearningReel.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/media/index.ts",
+        "status": "new"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-29-10",
+    "timestamp": "2026-09-29 18:29:10",
+    "type": "apply",
+    "count": 15,
+    "files": [
+      {
+        "path": "src/components/ui/Avatar.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/Progress.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/Accordion.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/Popover.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/charts/DonutChart.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/charts/LineChart.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useOnlineStatus.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useLocalStorage.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useDebouncedValue.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/layout/NavigationProgress.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/charts/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/hooks/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/AppLayout.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/OfflineBanner.tsx",
+        "status": "new"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-28-24",
+    "timestamp": "2026-09-29 18:28:24",
+    "type": "apply",
+    "count": 13,
+    "files": [
+      {
+        "path": "src/lib/formatters.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useIntersectionObserver.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useResizeObserver.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/Dialog.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/Sheet.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/DropdownMenu.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/charts/Sparkline.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/charts/BarChart.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/maps/VesselMarker.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/maps/MapControls.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/maps/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/charts/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/App.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-27-21",
+    "timestamp": "2026-09-29 18:27:21",
+    "type": "apply",
+    "count": 10,
+    "files": [
+      {
+        "path": "src/components/3d/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/chat/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/sections/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/lib/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/store/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/pages/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "index.html",
+        "status": "modified"
+      },
+      {
+        "path": "vite.config.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/services/aiService.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/services/simulationService.ts",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-26-10",
+    "timestamp": "2026-09-29 18:26:10",
+    "type": "apply",
+    "count": 12,
+    "files": [
+      {
+        "path": "src/main.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/lib/queryKeys.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useAppReady.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/layout/PageLoading.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/layout/PageShell.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/App.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/services/aisService.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/services/oceanService.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/services/weatherService.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/services/satelliteService.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/services/index.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/index.ts",
+        "status": "new"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-24-44",
+    "timestamp": "2026-09-29 18:24:44",
+    "type": "apply",
+    "count": 12,
+    "files": [
+      {
+        "path": "src/lib/queryClient.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useDocumentTitle.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/useScrollRestoration.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/Toaster.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/Separator.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/Tabs.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/ui/Tooltip.tsx",
+        "status": "new"
+      },
+      {
+        "path": "src/components/sections/Hero.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/AppLayout.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/store/useAppStore.ts",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/index.ts",
+        "status": "new"
+      },
+      {
+        "path": "src/hooks/index.ts",
+        "status": "new"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-23-30",
+    "timestamp": "2026-09-29 18:23:30",
+    "type": "apply",
+    "count": 10,
+    "files": [
+      {
+        "path": "src/pages/LiveMap.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Explorer.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/NotFound.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Auth.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/navigation/Footer.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/GlassPanel.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Skeleton.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/DataStream.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/navigation/CommandPalette.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/EmptyState.tsx",
+        "status": "new"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-18-55",
+    "timestamp": "2026-09-29 18:18:55",
+    "type": "apply",
+    "count": 8,
+    "files": [
+      {
+        "path": "src/components/ui/Input.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/chat/AgentPanel.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Alerts.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Community.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Games.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Profile.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Settings.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/About.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-17-12",
+    "timestamp": "2026-09-29 18:17:12",
+    "type": "apply",
+    "count": 12,
+    "files": [
+      {
+        "path": "src/components/ui/Button.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Card.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/ui/Badge.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Intelligence.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Vessels.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Ocean.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Simulations.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Learning.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/Home.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/pages/AIAssistant.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/chat/ChatMessage.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/chat/ChatInput.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-08-02",
+    "timestamp": "2026-09-29 18:08:02",
+    "type": "apply",
+    "count": 9,
+    "files": [
+      {
+        "path": "src/components/sections/AIAssistantPreview.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/SimulationsPreview.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/CommunityPreview.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/GamesPreview.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/IntelligenceArchitecture.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/ExplorerPreview.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/LiveMapPreview.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/TelemetryBar.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/FinalCTA.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-03-53",
+    "timestamp": "2026-09-29 18:03:53",
+    "type": "apply",
+    "count": 5,
+    "files": [
+      {
+        "path": "src/components/navigation/Navbar.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/navigation/Sidebar.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/WhyOrca.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/OceanData.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/sections/LearningPreview.tsx",
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "id": "2026-09-29_18-00-17",
+    "timestamp": "2026-09-29 18:00:17",
+    "type": "apply",
+    "count": 6,
+    "files": [
+      {
+        "path": "src/App.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/AppLayout.tsx",
+        "status": "modified"
+      },
+      {
+        "path": "src/components/layout/ErrorBoundary.tsx",
+        "status": "new"
+      },
+      {
+        "path": "tailwind.config.js",
+        "status": "modified"
+      },
+      {
+        "path": "src/index.css",
+        "status": "modified"
+      },
+      {
+        "path": "src/lib/animations.ts",
+        "status": "modified"
+      }
+    ]
+  }
+]

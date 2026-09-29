@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 4%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 188 86% 43%;
+    --primary-foreground: 222 47% 4%;
+
+    --secondary: 217 33% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 12%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 340 82% 52%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 15%;
+    --input: 217 33% 15%;
+    --ring: 188 86% 43%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-abyss text-foreground font-sans antialiased overflow-x-hidden;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: initial; /* Managed by Lenis */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-abyss;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-midnight-light rounded-full border-2 border-abyss;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ocean;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-cyan/30 text-white;
+  }
+
+  /* Focus ring */
+  :focus-visible {
+    @apply outline-none ring-2 ring-cyan ring-offset-2 ring-offset-abyss;
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* ---------- Dark surfaces (existing) ---------- */
+  .glass-panel {
+    @apply bg-glass backdrop-blur-md border border-white/10 shadow-glass;
+  }
+
+  .glass-panel-heavy {
+    @apply bg-abyss/80 backdrop-blur-xl border border-white/10 shadow-glass;
+  }
+
+  /* ---------- Light surfaces (new) ---------- */
+  /* Use these for editorial, content, and data sections that should NOT
+     be dark. Text inside is dark; the section itself is pearl/white. */
+  .surface-light {
+    @apply bg-pearl text-ink;
+  }
+
+  .surface-light-soft {
+    @apply bg-pearl-soft text-ink;
+  }
+
+  .surface-light-deep {
+    @apply bg-pearl-deep text-ink;
+  }
+
+  .card-light {
+    @apply rounded-2xl border border-ink/10 bg-white shadow-soft;
+  }
+
+  .card-light-elevated {
+    @apply rounded-2xl border border-ink/10 bg-white shadow-soft-md;
+  }
+
+  .card-dark {
+    @apply rounded-2xl border border-white/10 bg-white/[0.015];
+  }
+
+  /* ---------- Text helpers ---------- */
+  .text-on-light-primary { @apply text-ink; }
+  .text-on-light-secondary { @apply text-ink-soft; }
+  .text-on-light-muted { @apply text-mist-deep; }
+
+  .text-on-dark-primary { @apply text-white; }
+  .text-on-dark-secondary { @apply text-white/80; }
+  .text-on-dark-muted { @apply text-white/60; }
+
+  /* ---------- Gradients ---------- */
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan to-teal;
+  }
+
+  .text-gradient-white {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60;
+  }
+
+  .text-gradient-navy {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-ocean-dark via-ocean to-cyan-dark;
+  }
+
+  /* ---------- HUD / telemetry ---------- */
+  .hud-line {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-cyan/50 to-transparent;
+  }
+
+  .hud-line-light {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-ocean/30 to-transparent;
+  }
+
+  .telemetry-text {
+    @apply font-mono text-xs tracking-wider uppercase text-cyan/80;
+  }
+
+  .telemetry-text-light {
+    @apply font-mono text-xs tracking-wider uppercase text-ocean;
+  }
+
+  .data-grid {
+    background-image:
+      linear-gradient(rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .data-grid-light {
+    background-image:
+      linear-gradient(rgba(12, 74, 110, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(12, 74, 110, 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .radial-fade {
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  }
+
+  /* ---------- Section rhythm ---------- */
+  /* Generous vertical rhythm to let the layout breathe. */
+  .section-y {
+    @apply py-20 lg:py-28;
+  }
+
+  .section-y-lg {
+    @apply py-24 lg:py-36;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Balanced text for editorial headings */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}

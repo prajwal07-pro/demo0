@@ -1,0 +1,67 @@
+{
+  "id": "2026-09-29_18-30-37",
+  "timestamp": "2026-09-29 18:30:37",
+  "type": "apply",
+  "files": [
+    {
+      "path": "src/lib/env.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/hooks/useFeatureFlag.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/hooks/useVessels.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/hooks/useOceanLayer.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/hooks/useWeather.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/media/VideoHero.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/media/CinematicSection.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/media/VideoCard.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/media/LearningReel.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/media/index.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    }
+  ]
+}

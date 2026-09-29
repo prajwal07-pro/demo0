@@ -1,0 +1,85 @@
+{
+  "id": "2026-09-29_18-28-24",
+  "timestamp": "2026-09-29 18:28:24",
+  "type": "apply",
+  "files": [
+    {
+      "path": "src/lib/formatters.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/hooks/useIntersectionObserver.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/hooks/useResizeObserver.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/Dialog.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/Sheet.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/DropdownMenu.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/charts/Sparkline.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/charts/BarChart.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/maps/VesselMarker.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/maps/MapControls.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/maps/index.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/charts/index.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/App.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    }
+  ]
+}

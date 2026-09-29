@@ -1,0 +1,13 @@
+{
+  "id": "2026-09-29_22-09-57",
+  "timestamp": "2026-09-29 22:09:57",
+  "type": "apply",
+  "files": [
+    {
+      "path": "src/components/maps/MapControls.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    }
+  ]
+}

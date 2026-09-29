@@ -1,0 +1,67 @@
+{
+  "id": "2026-09-29_18-33-28",
+  "timestamp": "2026-09-29 18:33:28",
+  "type": "apply",
+  "files": [
+    {
+      "path": "src/components/providers/ThemeProvider.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/layout/ShortcutsOverlay.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/layout/AmbientBackground.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/ConfirmDialog.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/index.ts",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/chat/FileDropZone.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/chat/VoiceInputButton.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/chat/index.ts",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/layout/AppLayout.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/App.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    }
+  ]
+}

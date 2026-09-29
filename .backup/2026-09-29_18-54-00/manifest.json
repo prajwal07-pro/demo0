@@ -1,0 +1,133 @@
+{
+  "id": "2026-09-29_18-54-00",
+  "timestamp": "2026-09-29 18:54:00",
+  "type": "apply",
+  "files": [
+    {
+      "path": "src/pages/Learning.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Games.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Community.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Simulations.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/AIAssistant.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Alerts.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Profile.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Explorer.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/navigation/RouteGuard.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/navigation/CommandPalette.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/layout/OfflineBanner.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/layout/NavigationProgress.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/layout/ShortcutsOverlay.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/Sheet.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/vessels/VesselDetailSheet.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/chat/ChatInput.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/chat/ChatMessage.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/Toaster.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/EmptyState.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/sections/SectionHeader.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/sections/DataIntegrityBanner.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    }
+  ]
+}

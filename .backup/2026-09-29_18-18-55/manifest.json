@@ -1,0 +1,55 @@
+{
+  "id": "2026-09-29_18-18-55",
+  "timestamp": "2026-09-29 18:18:55",
+  "type": "apply",
+  "files": [
+    {
+      "path": "src/components/ui/Input.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/chat/AgentPanel.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Alerts.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Community.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Games.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Profile.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Settings.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/About.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    }
+  ]
+}

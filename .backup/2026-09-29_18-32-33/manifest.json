@@ -1,0 +1,73 @@
+{
+  "id": "2026-09-29_18-32-33",
+  "timestamp": "2026-09-29 18:32:33",
+  "type": "apply",
+  "files": [
+    {
+      "path": "src/components/3d/SceneLoader.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/3d/CameraRig.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/hooks/useHotkeys.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/Kbd.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/Breadcrumbs.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/errors/ServiceUnavailablePanel.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/errors/index.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/lib/telemetry.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/hooks/usePageView.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/sections/DataIntegrityBanner.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/sections/index.ts",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "2026-09-29_18-17-12",
+  "timestamp": "2026-09-29 18:17:12",
+  "type": "apply",
+  "files": [
+    {
+      "path": "src/components/ui/Button.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/Card.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/Badge.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Intelligence.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Vessels.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Ocean.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Simulations.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Learning.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Home.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/AIAssistant.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/chat/ChatMessage.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/chat/ChatInput.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    }
+  ]
+}

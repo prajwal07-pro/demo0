@@ -1,0 +1,79 @@
+{
+  "id": "2026-09-29_18-26-10",
+  "timestamp": "2026-09-29 18:26:10",
+  "type": "apply",
+  "files": [
+    {
+      "path": "src/main.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/lib/queryKeys.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/hooks/useAppReady.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/layout/PageLoading.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/layout/PageShell.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    },
+    {
+      "path": "src/App.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/services/aisService.ts",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/services/oceanService.ts",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/services/weatherService.ts",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/services/satelliteService.ts",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/services/index.ts",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/layout/index.ts",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    }
+  ]
+}

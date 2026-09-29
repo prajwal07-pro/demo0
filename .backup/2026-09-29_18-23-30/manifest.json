@@ -1,0 +1,67 @@
+{
+  "id": "2026-09-29_18-23-30",
+  "timestamp": "2026-09-29 18:23:30",
+  "type": "apply",
+  "files": [
+    {
+      "path": "src/pages/LiveMap.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Explorer.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/NotFound.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/pages/Auth.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/navigation/Footer.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/GlassPanel.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/Skeleton.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/DataStream.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/navigation/CommandPalette.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/ui/EmptyState.tsx",
+      "status": "new",
+      "old_exists": false,
+      "new_exists": true
+    }
+  ]
+}

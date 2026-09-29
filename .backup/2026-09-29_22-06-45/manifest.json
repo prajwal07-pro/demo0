@@ -1,0 +1,37 @@
+{
+  "id": "2026-09-29_22-06-45",
+  "timestamp": "2026-09-29 22:06:45",
+  "type": "apply",
+  "files": [
+    {
+      "path": "vite.config.ts",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/3d/SceneLoader.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/3d/EarthGlobe.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/3d/OceanCurrentField.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    },
+    {
+      "path": "src/components/maps/VesselMarker.tsx",
+      "status": "modified",
+      "old_exists": true,
+      "new_exists": true
+    }
+  ]
+}
