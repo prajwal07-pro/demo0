@@ -5,12 +5,13 @@ import type {
   MapLayer,
   AISVessel,
   MarineAlert,
-  OceanLayerId,
-  VesselTypeId,
-  QualityLevel,
   ChatConversation,
   User,
 } from '@/types';
+import type {
+  OceanLayerId,
+  VesselTypeId,
+} from '@/lib/constants';
 import { MAP_DEFAULTS } from '@/lib/constants';
 
 // ---------- UI State ----------

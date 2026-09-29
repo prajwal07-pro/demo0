@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { motion } from 'framer-motion';
 import {
   Waves,
@@ -68,7 +67,10 @@ export default function About() {
       {/* Hero */}
       <section className="relative py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 data-grid opacity-20" aria-hidden="true" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(2,6,23,0.95)_100%)]" aria-hidden="true" />
+        <div
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(2,6,23,0.95)_100%)]"
+          aria-hidden="true"
+        />
 
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <motion.div
@@ -248,7 +250,11 @@ export default function About() {
                   Join Community
                 </Button>
               </Link>
-              <a href="https://github.com" target="_blank" rel="noreferrer noopener">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 <Button
                   size="sm"
                   variant="ghost"
@@ -281,7 +287,11 @@ export default function About() {
                 </Button>
               </Link>
               <Link to="/assistant">
-                <Button size="sm" variant="secondary" leftIcon={<Waves className="h-3.5 w-3.5" />}>
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  leftIcon={<Waves className="h-3.5 w-3.5" />}
+                >
                   Talk to ORCA
                 </Button>
               </Link>

@@ -98,6 +98,8 @@ export function OceanScene({
     );
   }
 
+  const renderPostprocessing = postprocessing && preset.postprocessing;
+
   return (
     <div className={cn('relative w-full h-full', className)}>
       <Canvas
@@ -146,23 +148,32 @@ export function OceanScene({
           <AdaptiveEvents />
 
           {/* Postprocessing stack */}
-          {postprocessing && preset.postprocessing ? (
-            <EffectComposer multisampling={isHigh ? 4 : isMedium ? 2 : 0}>
+          {renderPostprocessing && isHigh ? (
+            <EffectComposer multisampling={4}>
               <Bloom
-                intensity={isHigh ? 0.9 : 0.5}
+                intensity={0.9}
                 luminanceThreshold={0.4}
                 luminanceSmoothing={0.9}
                 mipmapBlur
                 radius={0.75}
               />
-              {isHigh ? (
-                <ChromaticAberration
-                  offset={caOffset}
-                  radialModulation={false}
-                  modulationOffset={0}
-                  blendFunction={BlendFunction.NORMAL}
-                />
-              ) : null}
+              <ChromaticAberration
+                offset={caOffset}
+                radialModulation={false}
+                modulationOffset={0}
+                blendFunction={BlendFunction.NORMAL}
+              />
+              <Vignette eskil={false} offset={0.35} darkness={0.85} />
+            </EffectComposer>
+          ) : renderPostprocessing ? (
+            <EffectComposer multisampling={isMedium ? 2 : 0}>
+              <Bloom
+                intensity={0.5}
+                luminanceThreshold={0.4}
+                luminanceSmoothing={0.9}
+                mipmapBlur
+                radius={0.75}
+              />
               <Vignette eskil={false} offset={0.35} darkness={0.85} />
             </EffectComposer>
           ) : null}

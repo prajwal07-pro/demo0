@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard,
@@ -33,7 +33,14 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
   { id: 'chat', label: 'AI Chat (ORCA)', href: '/assistant', icon: MessageSquare },
   { id: 'tracking', label: 'Vessel Tracking', href: '/vessels', icon: LayoutDashboard },
   { id: 'layers', label: 'Ocean Layers', href: '/ocean', icon: Layers },
-  { id: 'alerts', label: 'Risk & Alerts', href: '/alerts', icon: AlertTriangle, badge: 3, badgeVariant: 'error' },
+  {
+    id: 'alerts',
+    label: 'Risk & Alerts',
+    href: '/alerts',
+    icon: AlertTriangle,
+    badge: 3,
+    badgeVariant: 'error',
+  },
   { id: 'simulation', label: 'Simulation Lab', href: '/simulations', icon: FlaskConical },
   { id: 'explorer', label: '3D Explorer', href: '/explorer', icon: Boxes },
   { id: 'learning', label: 'Learning Hub', href: '/learning', icon: GraduationCap },
@@ -46,15 +53,10 @@ const SECONDARY_ITEMS: SidebarItem[] = [
 ];
 
 // ---------- Sidebar Item ----------
-function Item({
-  item,
-  collapsed,
-}: {
-  item: SidebarItem;
-  collapsed: boolean;
-}) {
+function Item({ item, collapsed }: { item: SidebarItem; collapsed: boolean }) {
   const location = useLocation();
-  const isActive = location.pathname === item.href || location.pathname.startsWith(item.href + '/');
+  const isActive =
+    location.pathname === item.href || location.pathname.startsWith(item.href + '/');
   const Icon = item.icon;
 
   return (
@@ -76,7 +78,12 @@ function Item({
           transition={{ type: 'spring', stiffness: 400, damping: 30 }}
         />
       )}
-      <Icon className={cn('h-4 w-4 shrink-0 transition-transform group-hover:scale-110', isActive && 'text-cyan')} />
+      <Icon
+        className={cn(
+          'h-4 w-4 shrink-0 transition-transform group-hover:scale-110',
+          isActive && 'text-cyan'
+        )}
+      />
       {!collapsed && (
         <>
           <span className="flex-1 truncate">{item.label}</span>
@@ -86,7 +93,8 @@ function Item({
                 'font-mono text-[9px] font-bold rounded-full min-w-4 px-1.5 h-4 flex items-center justify-center',
                 item.badgeVariant === 'error' && 'bg-magenta/20 text-magenta',
                 item.badgeVariant === 'warning' && 'bg-amber-400/20 text-amber-400',
-                (!item.badgeVariant || item.badgeVariant === 'default') && 'bg-cyan/20 text-cyan'
+                (!item.badgeVariant || item.badgeVariant === 'default') &&
+                  'bg-cyan/20 text-cyan'
               )}
             >
               {item.badge}
@@ -194,7 +202,14 @@ const MOBILE_ITEMS: SidebarItem[] = [
   { id: 'home', label: 'Home', href: '/', icon: LayoutDashboard },
   { id: 'map', label: 'Map', href: '/map', icon: Radar },
   { id: 'chat', label: 'Chat', href: '/assistant', icon: MessageSquare },
-  { id: 'alerts', label: 'Alerts', href: '/alerts', icon: AlertTriangle, badge: 3, badgeVariant: 'error' },
+  {
+    id: 'alerts',
+    label: 'Alerts',
+    href: '/alerts',
+    icon: AlertTriangle,
+    badge: 3,
+    badgeVariant: 'error',
+  },
   { id: 'more', label: 'More', href: '/explore', icon: Boxes },
 ];
 

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import {
   Radar,
   ArrowRight,
-  Layers,
   Ship,
   Thermometer,
   Waves,
@@ -27,7 +26,6 @@ export function LiveMapPreview() {
 
   return (
     <section className="relative py-24 lg:py-32 bg-abyss overflow-hidden">
-      {/* ambient */}
       <div
         className="absolute top-1/2 right-0 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-violet/[0.04] blur-[140px]"
         aria-hidden="true"
@@ -69,29 +67,29 @@ export function LiveMapPreview() {
               and inspect any target — without leaving the map.
             </motion.p>
 
-            <motion.ul
-              variants={fadeInUp}
-              className="mt-8 flex flex-col gap-3"
-            >
+            <motion.ul variants={fadeInUp} className="mt-8 flex flex-col gap-3">
               {[
                 'Real-time AIS vessel tracking',
                 'SST, chlorophyll, wave, wind, currents',
                 'Fishing zones, protected areas, geofences',
                 'Selected vessel track & risk detail',
               ].map((t) => (
-                <li key={t} className="flex items-start gap-3 text-sm text-white/90">
+                <li
+                  key={t}
+                  className="flex items-start gap-3 text-sm text-white/90"
+                >
                   <span className="mt-1.5 h-1 w-1 rounded-full bg-cyan shrink-0" />
                   {t}
                 </li>
               ))}
             </motion.ul>
 
-            <motion.div variants={fadeInUp} className="mt-9 flex flex-wrap items-center gap-3">
+            <motion.div
+              variants={fadeInUp}
+              className="mt-9 flex flex-wrap items-center gap-3"
+            >
               <Link to="/map">
-                <Button
-                  size="lg"
-                  rightIcon={<ArrowRight className="h-4 w-4" />}
-                >
+                <Button size="lg" rightIcon={<ArrowRight className="h-4 w-4" />}>
                   Open Live Map
                 </Button>
               </Link>
@@ -131,19 +129,14 @@ function MapPreviewCanvas({
 }) {
   return (
     <div className="relative aspect-[4/3] rounded-2xl border border-cyan/20 bg-abyss/60 backdrop-blur-xl overflow-hidden shadow-[0_0_80px_rgba(6,182,212,0.15)]">
-      {/* HUD corners */}
       <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyan/60" />
       <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-cyan/60" />
       <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-cyan/60" />
       <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan/60" />
 
-      {/* Base map */}
       <div className="absolute inset-0 bg-gradient-to-br from-ocean-dark via-midnight to-abyss" />
-
-      {/* Grid */}
       <div className="absolute inset-0 data-grid opacity-40" />
 
-      {/* Stylized landmasses */}
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 400 300"
@@ -156,7 +149,6 @@ function MapPreviewCanvas({
             <stop offset="100%" stopColor="#082f49" stopOpacity="0.35" />
           </linearGradient>
         </defs>
-        {/* India-ish landmass */}
         <path
           d="M170 130 Q175 100 190 90 Q205 82 220 95 Q235 108 232 135 Q228 165 205 190 Q190 205 175 200 Q160 195 158 175 Q156 150 170 130 Z"
           fill="url(#landGrad)"
@@ -164,7 +156,6 @@ function MapPreviewCanvas({
           strokeWidth="0.5"
           strokeOpacity="0.5"
         />
-        {/* Sri Lanka */}
         <ellipse
           cx="180"
           cy="225"
@@ -177,7 +168,6 @@ function MapPreviewCanvas({
         />
       </svg>
 
-      {/* Coastal outline overlay */}
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 400 300"
@@ -194,16 +184,10 @@ function MapPreviewCanvas({
         />
       </svg>
 
-      {/* Vessel markers */}
       <VesselMarkers />
-
-      {/* Fishing zone halo */}
       <FishingZoneHalo />
-
-      {/* Selected vessel card */}
       <SelectedVesselCard />
 
-      {/* Top HUD bar */}
       <div className="absolute top-3 left-3 right-3 flex items-center gap-2 z-10">
         <div className="flex items-center gap-2 rounded-md border border-white/10 bg-abyss/80 backdrop-blur-md px-2.5 h-8">
           <Radar className="h-3 w-3 text-cyan" />
@@ -220,7 +204,6 @@ function MapPreviewCanvas({
         </div>
       </div>
 
-      {/* Bottom layer chips */}
       <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 z-10">
         {OCEAN_LAYERS.slice(0, 5).map((layer) => (
           <button
@@ -243,12 +226,10 @@ function MapPreviewCanvas({
         ))}
       </div>
 
-      {/* Coords HUD */}
       <div className="absolute bottom-3 right-3 z-10 font-mono text-[9px] tracking-widest text-cyan/70">
         15.0°N 85.0°E · Z5.0
       </div>
 
-      {/* Legend icons */}
       <div className="absolute top-14 right-3 z-10 hidden md:flex flex-col gap-1.5">
         <LegendChip icon={Ship} label="VESSELS" color="text-cyan" />
         <LegendChip icon={Thermometer} label="SST" color="text-magenta" />
@@ -257,7 +238,6 @@ function MapPreviewCanvas({
         <LegendChip icon={Wind} label="WIND" color="text-amber-400" />
       </div>
 
-      {/* Scan animation */}
       <motion.div
         className="pointer-events-none absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan/60 to-transparent"
         initial={{ top: '0%' }}
@@ -288,16 +268,15 @@ function LegendChip({
 }
 
 function VesselMarkers() {
-  // Deterministic marker positions (visual only)
   const markers = [
-    { x: '38%', y: '42%', type: 'cargo', color: '#3b82f6' },
-    { x: '52%', y: '58%', type: 'fishing', color: '#22c55e' },
-    { x: '44%', y: '72%', type: 'tanker', color: '#f59e0b' },
-    { x: '62%', y: '38%', type: 'passenger', color: '#8b5cf6' },
-    { x: '30%', y: '58%', type: 'research', color: '#06b6d4' },
-    { x: '58%', y: '68%', type: 'cargo', color: '#3b82f6' },
-    { x: '48%', y: '48%', type: 'fishing', color: '#22c55e' },
-    { x: '70%', y: '52%', type: 'tug', color: '#64748b' },
+    { x: '38%', y: '42%', color: '#3b82f6' },
+    { x: '52%', y: '58%', color: '#22c55e' },
+    { x: '44%', y: '72%', color: '#f59e0b' },
+    { x: '62%', y: '38%', color: '#8b5cf6' },
+    { x: '30%', y: '58%', color: '#06b6d4' },
+    { x: '58%', y: '68%', color: '#3b82f6' },
+    { x: '48%', y: '48%', color: '#22c55e' },
+    { x: '70%', y: '52%', color: '#64748b' },
   ];
 
   return (
@@ -353,7 +332,6 @@ function SelectedVesselCard() {
       className="absolute top-[42%] left-[38%] z-20 translate-x-4 -translate-y-1/2"
     >
       <div className="relative">
-        {/* connector */}
         <span className="absolute -left-4 top-3 h-px w-4 bg-cyan/60" />
         <span className="absolute -left-4 top-3 h-1.5 w-1.5 rounded-full bg-cyan -translate-x-1/2 -translate-y-1/2" />
         <div className="rounded-lg border border-cyan/40 bg-abyss/90 backdrop-blur-md p-2.5 min-w-[150px] shadow-lg">
@@ -363,7 +341,9 @@ function SelectedVesselCard() {
           <div className="mt-0.5 text-[11px] font-medium text-white truncate">
             MV Ocean Explorer
           </div>
-          <div className="font-mono text-[9px] text-cyan/70">MMSI 563271000</div>
+          <div className="font-mono text-[9px] text-cyan/70">
+            MMSI 563271000
+          </div>
           <div className="mt-1.5 grid grid-cols-2 gap-x-2 gap-y-0.5 font-mono text-[8px] text-muted-foreground">
             <span>SPD · 12.4 kn</span>
             <span>HDG · 087°</span>

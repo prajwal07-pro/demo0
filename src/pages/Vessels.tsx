@@ -13,7 +13,6 @@ import {
   TrendingUp,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { Input } from '@/components/ui/Input';
 import { VESSEL_TYPES, type VesselTypeId } from '@/lib/constants';
@@ -92,10 +91,7 @@ export default function Vessels() {
         variants={staggerContainer}
         className="mb-8"
       >
-        <motion.div
-          variants={fadeInUp}
-          className="flex items-center gap-3 mb-2"
-        >
+        <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-2">
           <span className="font-mono text-[10px] tracking-[0.3em] text-cyan/70">
             MODULE · AIS
           </span>
@@ -258,7 +254,8 @@ export default function Vessels() {
                 </div>
 
                 <div className="font-mono text-xs text-white tabular-nums">
-                  {v.speed.toFixed(1)} <span className="text-muted-foreground">kn</span>
+                  {v.speed.toFixed(1)}{' '}
+                  <span className="text-muted-foreground">kn</span>
                 </div>
 
                 <div className="text-xs text-muted-foreground truncate">
@@ -308,8 +305,15 @@ function StatCard({
   return (
     <div className="rounded-lg border border-white/5 bg-white/[0.015] p-4">
       <div className="flex items-center justify-between mb-2">
-        <span className="telemetry-text text-[9px] text-muted-foreground">{label}</span>
-        <div className={cn('h-6 w-6 rounded-md border flex items-center justify-center', accentClass)}>
+        <span className="telemetry-text text-[9px] text-muted-foreground">
+          {label}
+        </span>
+        <div
+          className={cn(
+            'h-6 w-6 rounded-md border flex items-center justify-center',
+            accentClass
+          )}
+        >
           <Icon className="h-3 w-3" />
         </div>
       </div>
@@ -342,7 +346,10 @@ function FilterChip({
       )}
     >
       {color && (
-        <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: color }} />
+        <span
+          className="h-1.5 w-1.5 rounded-full"
+          style={{ backgroundColor: color }}
+        />
       )}
       {label}
     </button>
@@ -375,7 +382,13 @@ function VesselListSkeleton() {
   );
 }
 
-function EmptyState({ title, description }: { title: string; description: string }) {
+function EmptyState({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
   return (
     <div className="rounded-xl border border-dashed border-white/10 bg-white/[0.01] px-6 py-16 text-center">
       <div className="mx-auto h-12 w-12 rounded-full border border-white/10 flex items-center justify-center mb-4">
@@ -395,5 +408,5 @@ function vesselColor(type: VesselTypeId): string {
   return VESSEL_TYPES.find((v) => v.id === type)?.color ?? '#94a3b8';
 }
 
-// reserved for future use
+// reserved
 void Clock;

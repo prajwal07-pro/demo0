@@ -8,7 +8,6 @@ import { SatelliteModel } from '@/components/3d/SatelliteModel';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { DataStream } from '@/components/ui/DataStream';
-import { cn } from '@/lib/utils';
 import { EASINGS } from '@/lib/animations';
 import { usePrefersReducedMotion } from '@/hooks/useMediaQuery';
 
@@ -25,7 +24,6 @@ export function Hero() {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const reducedMotion = usePrefersReducedMotion();
 
-  // Scroll-driven cinematic transforms
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start'],
@@ -36,7 +34,6 @@ export function Hero() {
   const sceneScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
   const sceneOpacity = useTransform(scrollYProgress, [0.4, 1], [1, 0]);
 
-  // Mouse parallax
   const [mouse, setMouse] = React.useState({ x: 0, y: 0 });
   React.useEffect(() => {
     if (reducedMotion) return;
@@ -73,7 +70,6 @@ export function Hero() {
           showParticles
           className="h-full w-full"
         >
-          {/* Orca — flagship */}
           <OrcaModel
             position={[0, -0.4, 0]}
             scale={1.1}
@@ -82,7 +78,6 @@ export function Hero() {
             holographic
           />
 
-          {/* Orbiting satellite */}
           <SatelliteModel
             orbiting
             orbitRadius={7}
@@ -93,7 +88,6 @@ export function Hero() {
             showLabel={false}
           />
 
-          {/* Secondary orca in the distance for depth */}
           <OrcaModel
             position={[-4, 0.6, -3]}
             scale={0.5}
@@ -106,11 +100,8 @@ export function Hero() {
 
       {/* ---------- Atmospheric overlays ---------- */}
       <div className="pointer-events-none absolute inset-0 z-10">
-        {/* Top scan lines */}
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan/40 to-transparent" />
-        {/* Radial vignette */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(2,6,23,0.85)_100%)]" />
-        {/* Bottom fade into next section */}
         <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-abyss via-abyss/80 to-transparent" />
       </div>
 
@@ -144,7 +135,6 @@ export function Hero() {
       >
         <div className="mx-auto w-full max-w-7xl">
           <div className="max-w-3xl">
-            {/* Eyebrow */}
             <motion.div
               className="flex items-center gap-3 mb-6"
               initial={{ opacity: 0, y: 20 }}
@@ -168,7 +158,6 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Headline */}
             <h1 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white">
               <motion.span
                 className="block"
@@ -196,7 +185,6 @@ export function Hero() {
               </motion.span>
             </h1>
 
-            {/* Subhead */}
             <motion.p
               className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
@@ -208,7 +196,6 @@ export function Hero() {
               operating picture — for marine research, safety, and sustainability.
             </motion.p>
 
-            {/* CTA row */}
             <motion.div
               className="mt-9 flex flex-wrap items-center gap-4"
               initial={{ opacity: 0, y: 20 }}
@@ -242,7 +229,6 @@ export function Hero() {
               </button>
             </motion.div>
 
-            {/* Status chips */}
             <motion.div
               className="mt-10 flex flex-wrap items-center gap-3"
               initial={{ opacity: 0 }}
@@ -255,14 +241,11 @@ export function Hero() {
               <Badge variant="default" dot>
                 12+ OCEAN DATA LAYERS
               </Badge>
-              <Badge variant="violet">
-                24/7 AI AGENTS
-              </Badge>
+              <Badge variant="violet">24/7 AI AGENTS</Badge>
             </motion.div>
           </div>
         </div>
 
-        {/* Scroll hint */}
         <motion.div
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-cyan/60"
           initial={{ opacity: 0 }}
@@ -276,7 +259,6 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Thin data stream line at very bottom */}
       <div className="absolute bottom-0 inset-x-0 z-30 h-px overflow-hidden">
         <DataStream direction="horizontal" speed={0.7} particles={false} />
       </div>

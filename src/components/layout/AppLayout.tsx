@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/navigation/Navbar';

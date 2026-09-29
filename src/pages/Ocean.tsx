@@ -20,12 +20,6 @@ import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 /**
  * Ocean — ocean intelligence workspace.
- *
- * Renders data-layer toggles, a large playback control for time,
- * and a "layer availability" grid that honestly shows which datasets
- * are currently wired up vs. awaiting a live source.
- *
- * Data integrity: layer status comes from state, not invented numbers.
  */
 export default function Ocean() {
   const activeLayers = useAppStore((s) => s.activeLayers);
@@ -38,7 +32,7 @@ export default function Ocean() {
 
   const toggleLayer = (id: OceanLayerId) => {
     if (activeLayers.includes(id)) {
-      setActiveLayers(activeLayers.filter((l) => l !== id));
+      setActiveLayers(activeLayers.filter((l: OceanLayerId) => l !== id));
     } else {
       setActiveLayers([...activeLayers, id]);
     }
@@ -65,7 +59,10 @@ export default function Ocean() {
         >
           Ocean Intelligence
         </motion.h1>
-        <motion.p variants={fadeInUp} className="mt-3 max-w-2xl text-muted-foreground">
+        <motion.p
+          variants={fadeInUp}
+          className="mt-3 max-w-2xl text-muted-foreground"
+        >
           Sea surface temperature, chlorophyll, currents, wave height, wind,
           and bathymetry — fused from satellite, model, and in-situ sources.
         </motion.p>
@@ -273,7 +270,10 @@ export default function Ocean() {
 }
 
 // ---------- Icon map ----------
-const LAYER_ICONS: Record<OceanLayerId, React.ComponentType<{ className?: string }>> = {
+const LAYER_ICONS: Record<
+  OceanLayerId,
+  React.ComponentType<{ className?: string }>
+> = {
   sst: Thermometer,
   chlorophyll: Droplets,
   waveHeight: Waves,

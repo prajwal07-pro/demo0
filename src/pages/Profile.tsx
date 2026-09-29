@@ -120,7 +120,11 @@ export default function Profile() {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            <Button variant="secondary" size="sm" leftIcon={<Edit3 className="h-3.5 w-3.5" />}>
+            <Button
+              variant="secondary"
+              size="sm"
+              leftIcon={<Edit3 className="h-3.5 w-3.5" />}
+            >
               Edit Profile
             </Button>
             <Link to="/settings">
@@ -216,8 +220,16 @@ export default function Profile() {
             <ul className="flex flex-col gap-1">
               <QuickLink to="/map" icon={Map} label="Live Marine Map" />
               <QuickLink to="/vessels" icon={Ship} label="Tracked Vessels" />
-              <QuickLink to="/assistant" icon={MessageSquare} label="AI Assistant" />
-              <QuickLink to="/learning" icon={Radar} label="Learning Progress" />
+              <QuickLink
+                to="/assistant"
+                icon={MessageSquare}
+                label="AI Assistant"
+              />
+              <QuickLink
+                to="/learning"
+                icon={Radar}
+                label="Learning Progress"
+              />
             </ul>
           </div>
 
@@ -226,10 +238,22 @@ export default function Profile() {
               RECENT ACTIVITY
             </div>
             <ul className="flex flex-col gap-3 text-xs">
-              <ActivityItem text="Completed 'How AIS Works' module 3" time="2h ago" />
-              <ActivityItem text="Saved 'Bay of Bengal' map view" time="1d ago" />
-              <ActivityItem text="Ran 'Storm Scenario' simulation" time="3d ago" />
-              <ActivityItem text="Earned 'Ocean Explorer' badge" time="5d ago" />
+              <ActivityItem
+                text="Completed 'How AIS Works' module 3"
+                time="2h ago"
+              />
+              <ActivityItem
+                text="Saved 'Bay of Bengal' map view"
+                time="1d ago"
+              />
+              <ActivityItem
+                text="Ran 'Storm Scenario' simulation"
+                time="3d ago"
+              />
+              <ActivityItem
+                text="Earned 'Ocean Explorer' badge"
+                time="5d ago"
+              />
             </ul>
           </div>
         </aside>
@@ -265,7 +289,12 @@ function StatBox({
         <span className="telemetry-text text-[9px] text-muted-foreground">
           {label}
         </span>
-        <div className={cn('h-6 w-6 rounded-md border flex items-center justify-center', accentClass)}>
+        <div
+          className={cn(
+            'h-6 w-6 rounded-md border flex items-center justify-center',
+            accentClass
+          )}
+        >
           <Icon className="h-3 w-3" />
         </div>
       </div>

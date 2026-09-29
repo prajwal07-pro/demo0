@@ -13,7 +13,6 @@ import {
   Lock,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { GAME_MODES } from '@/lib/constants';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
@@ -43,8 +42,6 @@ const LEADERBOARD: LeaderEntry[] = [
 
 /**
  * Games — interactive marine mini-experiences.
- * Each "game" is a real interactive exercise (not a static card) that
- * will be wired to a 2D canvas or 3D scene in a later phase.
  */
 export default function Games() {
   const [active, setActive] = React.useState<string | null>(null);
@@ -98,7 +95,6 @@ export default function Games() {
                       : 'border-white/10 bg-white/[0.015] hover:border-cyan/30 hover:bg-white/[0.03]'
                   )}
                 >
-                  {/* Corner HUD */}
                   <span className="absolute top-0 left-0 w-3 h-3 border-t border-l border-cyan/0 group-hover:border-cyan/60 transition-colors" />
                   <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-cyan/0 group-hover:border-cyan/60 transition-colors" />
 
@@ -167,9 +163,12 @@ export default function Games() {
                 <div
                   className={cn(
                     'h-7 w-7 rounded-md flex items-center justify-center font-mono text-xs font-bold',
-                    entry.rank === 1 && 'bg-amber-400/20 text-amber-400 border border-amber-400/40',
-                    entry.rank === 2 && 'bg-slate-300/20 text-slate-200 border border-slate-300/30',
-                    entry.rank === 3 && 'bg-amber-700/20 text-amber-600 border border-amber-700/30',
+                    entry.rank === 1 &&
+                      'bg-amber-400/20 text-amber-400 border border-amber-400/40',
+                    entry.rank === 2 &&
+                      'bg-slate-300/20 text-slate-200 border border-slate-300/30',
+                    entry.rank === 3 &&
+                      'bg-amber-700/20 text-amber-600 border border-amber-700/30',
                     entry.rank > 3 && 'bg-white/5 text-muted-foreground'
                   )}
                 >

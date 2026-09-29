@@ -34,20 +34,104 @@ interface Command {
 
 const COMMANDS: Command[] = [
   // Navigation
-  { id: 'open-map', label: 'Open Live Marine Map', icon: Radar, category: 'navigation', href: '/map', keywords: ['gis', 'layers', 'geospatial'] },
-  { id: 'open-chat', label: 'Ask ORCA', description: 'Open the AI Marine Assistant', icon: MessageSquare, category: 'navigation', href: '/assistant', keywords: ['ai', 'chat', 'ask'] },
-  { id: 'open-explorer', label: 'Open 3D Explorer', icon: Boxes, category: 'navigation', href: '/explorer', keywords: ['three', 'webgl', 'lab'] },
-  { id: 'open-sim', label: 'Run Simulation', icon: FlaskConical, category: 'navigation', href: '/simulations', keywords: ['model', 'scenario'] },
-  { id: 'open-learning', label: 'Open Learning Lab', icon: GraduationCap, category: 'navigation', href: '/learning', keywords: ['course', 'quiz', 'learn'] },
-  { id: 'open-games', label: 'Play Marine Games', icon: Gamepad2, category: 'navigation', href: '/games', keywords: ['game', 'play'] },
-  { id: 'open-alerts', label: 'View Alerts', icon: AlertTriangle, category: 'navigation', href: '/alerts', keywords: ['warning', 'risk', 'emergency'] },
-  { id: 'open-vessels', label: 'Vessel Intelligence', icon: Ship, category: 'navigation', href: '/vessels', keywords: ['ais', 'track', 'ship'] },
-  { id: 'open-ocean', label: 'Ocean Intelligence', icon: Waves, category: 'navigation', href: '/ocean', keywords: ['sst', 'chlorophyll', 'currents'] },
-  { id: 'open-regions', label: 'Find a Region', description: 'Search locations', icon: Compass, category: 'navigation', href: '/map', keywords: ['location', 'coordinates'] },
+  {
+    id: 'open-map',
+    label: 'Open Live Marine Map',
+    icon: Radar,
+    category: 'navigation',
+    href: '/map',
+    keywords: ['gis', 'layers', 'geospatial'],
+  },
+  {
+    id: 'open-chat',
+    label: 'Ask ORCA',
+    description: 'Open the AI Marine Assistant',
+    icon: MessageSquare,
+    category: 'navigation',
+    href: '/assistant',
+    keywords: ['ai', 'chat', 'ask'],
+  },
+  {
+    id: 'open-explorer',
+    label: 'Open 3D Explorer',
+    icon: Boxes,
+    category: 'navigation',
+    href: '/explorer',
+    keywords: ['three', 'webgl', 'lab'],
+  },
+  {
+    id: 'open-sim',
+    label: 'Run Simulation',
+    icon: FlaskConical,
+    category: 'navigation',
+    href: '/simulations',
+    keywords: ['model', 'scenario'],
+  },
+  {
+    id: 'open-learning',
+    label: 'Open Learning Lab',
+    icon: GraduationCap,
+    category: 'navigation',
+    href: '/learning',
+    keywords: ['course', 'quiz', 'learn'],
+  },
+  {
+    id: 'open-games',
+    label: 'Play Marine Games',
+    icon: Gamepad2,
+    category: 'navigation',
+    href: '/games',
+    keywords: ['game', 'play'],
+  },
+  {
+    id: 'open-alerts',
+    label: 'View Alerts',
+    icon: AlertTriangle,
+    category: 'navigation',
+    href: '/alerts',
+    keywords: ['warning', 'risk', 'emergency'],
+  },
+  {
+    id: 'open-vessels',
+    label: 'Vessel Intelligence',
+    icon: Ship,
+    category: 'navigation',
+    href: '/vessels',
+    keywords: ['ais', 'track', 'ship'],
+  },
+  {
+    id: 'open-ocean',
+    label: 'Ocean Intelligence',
+    icon: Waves,
+    category: 'navigation',
+    href: '/ocean',
+    keywords: ['sst', 'chlorophyll', 'currents'],
+  },
+  {
+    id: 'open-regions',
+    label: 'Find a Region',
+    description: 'Search locations',
+    icon: Compass,
+    category: 'navigation',
+    href: '/map',
+    keywords: ['location', 'coordinates'],
+  },
 
   // Actions
-  { id: 'action-search-vessel', label: 'Search Vessel by MMSI', icon: Ship, category: 'action', keywords: ['mmsi', 'imo', 'lookup'] },
-  { id: 'action-search-location', label: 'Search Location', icon: Compass, category: 'action', keywords: ['city', 'port', 'bay'] },
+  {
+    id: 'action-search-vessel',
+    label: 'Search Vessel by MMSI',
+    icon: Ship,
+    category: 'action',
+    keywords: ['mmsi', 'imo', 'lookup'],
+  },
+  {
+    id: 'action-search-location',
+    label: 'Search Location',
+    icon: Compass,
+    category: 'action',
+    keywords: ['city', 'port', 'bay'],
+  },
 ];
 
 const CATEGORY_LABELS: Record<Command['category'], string> = {
@@ -89,7 +173,9 @@ export function CommandPalette() {
     if (!query.trim()) return COMMANDS;
     const q = query.toLowerCase();
     return COMMANDS.filter((c) => {
-      const haystack = [c.label, c.description ?? '', ...(c.keywords ?? [])].join(' ').toLowerCase();
+      const haystack = [c.label, c.description ?? '', ...(c.keywords ?? [])]
+        .join(' ')
+        .toLowerCase();
       return haystack.includes(q);
     });
   }, [query]);
@@ -105,7 +191,7 @@ export function CommandPalette() {
   }, [filtered]);
 
   // Flatten for keyboard navigation
-  const flatList = React.useMemo(() => filtered, [filtered]);
+  const flatList = filtered;
 
   // Reset selection when results change
   React.useEffect(() => {

@@ -1,6 +1,4 @@
-import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Github, Mail, Globe, Twitter, Linkedin, Shield } from 'lucide-react';
 import { OrcaLogo } from './Navbar';
 import { cn } from '@/lib/utils';
@@ -103,7 +101,13 @@ export function Footer() {
   );
 }
 
-function StatusPill({ label, status }: { label: string; status: 'online' | 'degraded' | 'offline' }) {
+function StatusPill({
+  label,
+  status,
+}: {
+  label: string;
+  status: 'online' | 'degraded' | 'offline';
+}) {
   const color =
     status === 'online'
       ? 'bg-teal'

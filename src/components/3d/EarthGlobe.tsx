@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useFrame, useThree } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -41,13 +41,13 @@ export function EarthGlobe({
   atmosphere = true,
   showArcs = true,
   position = [0, 0, 0],
-  tilt = 0.41, // ~23.5° axial tilt
+  tilt = 0.41,
 }: EarthGlobeProps) {
   const groupRef = React.useRef<THREE.Group>(null);
   const cloudsRef = React.useRef<THREE.Mesh>(null);
   const arcsRef = React.useRef<THREE.Group>(null);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (groupRef.current) {
       groupRef.current.rotation.y += delta * rotationSpeed;
     }
@@ -73,7 +73,9 @@ export function EarthGlobe({
           <ProceduralEarth radius={radius} />
         )}
 
-        {cloudUrl && <CloudLayer radius={radius} cloudUrl={cloudUrl} ref={cloudsRef} />}
+        {cloudUrl && (
+          <CloudLayer radius={radius} cloudUrl={cloudUrl} ref={cloudsRef} />
+        )}
 
         {showArcs && (
           <group ref={arcsRef}>
@@ -81,18 +83,15 @@ export function EarthGlobe({
           </group>
         )}
 
-        {/* Atmosphere rim glow */}
         {atmosphere && <AtmosphereLayer radius={radius} />}
       </group>
 
-      {/* Key light from sun direction */}
       <directionalLight
         position={[5, 2, 4]}
         intensity={2.2}
         color="#fff7ed"
         castShadow
       />
-      {/* Cool fill light on dark side */}
       <directionalLight position={[-4, -1, -3]} intensity={0.35} color="#06b6d4" />
     </group>
   );
@@ -151,7 +150,6 @@ function TexturedEarth({
 /* -------------------------------------------------------------------------- */
 
 function ProceduralEarth({ radius }: { radius: number }) {
-  // Custom shader-free approach: layered materials to fake continents
   const oceanMat = React.useMemo(
     () =>
       new THREE.MeshPhysicalMaterial({
@@ -175,9 +173,11 @@ function ProceduralEarth({ radius }: { radius: number }) {
     []
   );
 
-  // Generate simplified continent-like blobs (fake geometry to avoid blank sphere)
   const continents = React.useMemo(() => {
-    const shapes: { position: [number, number, number]; scale: [number, number, number] }[] = [];
+    const shapes: {
+      position: [number, number, number];
+      scale: [number, number, number];
+    }[] = [];
     let seed = 12345;
     const rand = () => {
       seed = (seed * 9301 + 49297) % 233280;
@@ -191,19 +191,20 @@ function ProceduralEarth({ radius }: { radius: number }) {
       const y = r * Math.cos(phi);
       const z = r * Math.sin(phi) * Math.sin(theta);
       const s = 0.15 + rand() * 0.25;
-      shapes.push({ position: [x, y, z], scale: [s, s * (0.6 + rand() * 0.5), s * 0.9] });
+      shapes.push({
+        position: [x, y, z],
+        scale: [s, s * (0.6 + rand() * 0.5), s * 0.9],
+      });
     }
     return shapes;
   }, [radius]);
 
   return (
     <group>
-      {/* Base ocean sphere */}
       <mesh castShadow receiveShadow material={oceanMat}>
         <sphereGeometry args={[radius, 96, 64]} />
       </mesh>
 
-      {/* Land blobs */}
       {continents.map((c, i) => (
         <mesh key={i} position={c.position} scale={c.scale} material={landMat}>
           <sphereGeometry args={[1, 24, 16]} />
@@ -217,30 +218,31 @@ function ProceduralEarth({ radius }: { radius: number }) {
 /*                               Cloud Layer                                  */
 /* -------------------------------------------------------------------------- */
 
-const CloudLayer = React.forwardRef<THREE.Mesh, { radius: number; cloudUrl: string }>(
-  ({ radius, cloudUrl }, ref) => {
-    const cloudMap = useTexture(cloudUrl);
-    React.useEffect(() => {
-      if (cloudMap) {
-        cloudMap.colorSpace = THREE.SRGBColorSpace;
-        cloudMap.anisotropy = 4;
-      }
-    }, [cloudMap]);
+const CloudLayer = React.forwardRef<
+  THREE.Mesh,
+  { radius: number; cloudUrl: string }
+>(({ radius, cloudUrl }, ref) => {
+  const cloudMap = useTexture(cloudUrl);
+  React.useEffect(() => {
+    if (cloudMap) {
+      cloudMap.colorSpace = THREE.SRGBColorSpace;
+      cloudMap.anisotropy = 4;
+    }
+  }, [cloudMap]);
 
-    return (
-      <mesh ref={ref} scale={radius * 1.01}>
-        <sphereGeometry args={[1, 64, 48]} />
-        <meshStandardMaterial
-          map={cloudMap}
-          transparent
-          opacity={0.35}
-          depthWrite={false}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
-    );
-  }
-);
+  return (
+    <mesh ref={ref} scale={radius * 1.01}>
+      <sphereGeometry args={[1, 64, 48]} />
+      <meshStandardMaterial
+        map={cloudMap}
+        transparent
+        opacity={0.35}
+        depthWrite={false}
+        blending={THREE.AdditiveBlending}
+      />
+    </mesh>
+  );
+});
 CloudLayer.displayName = 'CloudLayer';
 
 /* -------------------------------------------------------------------------- */
@@ -249,7 +251,11 @@ CloudLayer.displayName = 'CloudLayer';
 
 function DataArcs({ radius }: { radius: number }) {
   const arcs = React.useMemo(() => {
-    const arr: { start: THREE.Vector3; end: THREE.Vector3; color: string }[] = [];
+    const arr: {
+      start: THREE.Vector3;
+      end: THREE.Vector3;
+      color: string;
+    }[] = [];
     const colors = ['#06b6d4', '#14b8a6', '#40e0d0', '#8b5cf6'];
     for (let i = 0; i < 8; i++) {
       const theta1 = Math.random() * Math.PI * 2;
@@ -268,7 +274,7 @@ function DataArcs({ radius }: { radius: number }) {
           r * Math.cos(phi2),
           r * Math.sin(phi2) * Math.sin(theta2)
         ),
-        color: colors[i % colors.length]!,
+        color: colors[i % colors.length] ?? '#06b6d4',
       });
     }
     return arr;
@@ -277,7 +283,13 @@ function DataArcs({ radius }: { radius: number }) {
   return (
     <>
       {arcs.map((arc, i) => (
-        <ArcLine key={i} start={arc.start} end={arc.end} color={arc.color} radius={radius} />
+        <ArcLine
+          key={i}
+          start={arc.start}
+          end={arc.end}
+          color={arc.color}
+          radius={radius}
+        />
       ))}
     </>
   );
@@ -299,8 +311,7 @@ function ArcLine({
     mid.normalize().multiplyScalar(radius * 1.35);
     const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
     const points = curve.getPoints(40);
-    const geo = new THREE.BufferGeometry().setFromPoints(points);
-    return geo;
+    return new THREE.BufferGeometry().setFromPoints(points);
   }, [start, end, radius]);
 
   const ref = React.useRef<THREE.Line>(null);

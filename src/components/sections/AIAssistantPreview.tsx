@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -10,7 +9,6 @@ import {
   Database,
   Check,
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
@@ -133,7 +131,6 @@ function ChatMock() {
 
       {/* Transcript */}
       <div className="p-5 flex flex-col gap-5">
-        {/* User message */}
         <div className="flex gap-3 flex-row-reverse">
           <div className="h-8 w-8 shrink-0 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center">
             <UserIcon className="h-3.5 w-3.5 text-muted-foreground" />
@@ -143,7 +140,6 @@ function ChatMock() {
           </div>
         </div>
 
-        {/* Assistant response */}
         <div className="flex gap-3">
           <div className="h-8 w-8 shrink-0 rounded-lg border border-cyan/30 bg-cyan/10 flex items-center justify-center">
             <Bot className="h-3.5 w-3.5 text-cyan" />
@@ -160,9 +156,7 @@ function ChatMock() {
                 <span className="font-mono text-[9px] tracking-widest text-cyan/70">
                   FISHING ZONE MAP
                 </span>
-                <span className="font-mono text-[9px] text-teal">
-                  ● LIVE
-                </span>
+                <span className="font-mono text-[9px] text-teal">● LIVE</span>
               </div>
               <MiniMap />
             </div>
@@ -208,7 +202,6 @@ function MiniMap() {
   return (
     <div className="relative aspect-[16/8] rounded-md overflow-hidden bg-gradient-to-br from-ocean-dark to-abyss">
       <div className="absolute inset-0 data-grid opacity-30" />
-      {/* Coastline hint */}
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 200 100"
@@ -223,7 +216,6 @@ function MiniMap() {
           strokeOpacity="0.6"
         />
       </svg>
-      {/* PFZ halo */}
       <motion.div
         className="absolute rounded-full border border-dashed border-teal/60"
         style={{ left: '58%', top: '40%', width: '22%', height: '38%' }}
@@ -234,12 +226,14 @@ function MiniMap() {
           PFZ
         </span>
       </motion.div>
-      {/* Markers */}
-      <span className="absolute h-1.5 w-1.5 rounded-full bg-cyan shadow-[0_0_6px_#06b6d4]" style={{ left: '40%', top: '50%' }} />
-      <span className="absolute h-1.5 w-1.5 rounded-full bg-cyan shadow-[0_0_6px_#06b6d4]" style={{ left: '70%', top: '60%' }} />
+      <span
+        className="absolute h-1.5 w-1.5 rounded-full bg-cyan shadow-[0_0_6px_#06b6d4]"
+        style={{ left: '40%', top: '50%' }}
+      />
+      <span
+        className="absolute h-1.5 w-1.5 rounded-full bg-cyan shadow-[0_0_6px_#06b6d4]"
+        style={{ left: '70%', top: '60%' }}
+      />
     </div>
   );
 }
-
-// reserved
-void cn;

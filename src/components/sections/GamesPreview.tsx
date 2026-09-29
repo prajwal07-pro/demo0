@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -12,8 +11,6 @@ import {
   Target,
   Zap,
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { GAME_MODES } from '@/lib/constants';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
@@ -121,10 +118,7 @@ export function GamesPreview() {
               </span>
             </div>
             <Link to="/games">
-              <Button
-                size="md"
-                rightIcon={<ArrowRight className="h-4 w-4" />}
-              >
+              <Button size="md" rightIcon={<ArrowRight className="h-4 w-4" />}>
                 Play Now
               </Button>
             </Link>

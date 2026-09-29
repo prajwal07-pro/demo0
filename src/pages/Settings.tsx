@@ -18,6 +18,7 @@ import { Input, Textarea } from '@/components/ui/Input';
 import { useAppStore } from '@/store/useAppStore';
 import { QUALITY_PRESETS, type QualityLevel } from '@/lib/constants';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
+import type { User as UserType, UserPreferences } from '@/types';
 
 type TabId =
   | 'profile'
@@ -53,7 +54,8 @@ const TABS: Tab[] = [
  */
 export default function Settings() {
   const [tab, setTab] = React.useState<TabId>('profile');
-  const { user, updatePreferences } = useAppStore();
+  const user = useAppStore((s) => s.user);
+  const updatePreferences = useAppStore((s) => s.updatePreferences);
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-8">
@@ -114,12 +116,22 @@ export default function Settings() {
         >
           {tab === 'profile' && <ProfilePanel user={user} />}
           {tab === 'data' && <DataPanel />}
-          {tab === 'ai' && <AIPanel user={user} updatePreferences={updatePreferences} />}
-          {tab === 'appearance' && <AppearancePanel user={user} updatePreferences={updatePreferences} />}
-          {tab === 'accessibility' && <AccessibilityPanel user={user} updatePreferences={updatePreferences} />}
-          {(tab === 'language' || tab === 'voice' || tab === 'notifications' || tab === 'privacy') && (
-            <PlaceholderPanel tab={tab} />
+          {tab === 'ai' && (
+            <AIPanel user={user} updatePreferences={updatePreferences} />
           )}
+          {tab === 'appearance' && (
+            <AppearancePanel user={user} updatePreferences={updatePreferences} />
+          )}
+          {tab === 'accessibility' && (
+            <AccessibilityPanel
+              user={user}
+              updatePreferences={updatePreferences}
+            />
+          )}
+          {(tab === 'language' ||
+            tab === 'voice' ||
+            tab === 'notifications' ||
+            tab === 'privacy') && <PlaceholderPanel tab={tab} />}
         </motion.div>
       </div>
     </div>
@@ -128,7 +140,7 @@ export default function Settings() {
 
 // ---------- Panels ----------
 
-function ProfilePanel({ user }: { user: ReturnType<typeof useAppStore.getState>['user'] }) {
+function ProfilePanel({ user }: { user: UserType | null }) {
   return (
     <div>
       <SectionHeader title="Profile" subtitle="Your public ORCA identity." />
@@ -139,7 +151,10 @@ function ProfilePanel({ user }: { user: ReturnType<typeof useAppStore.getState>[
         <Input label="ROLE" defaultValue={user?.role ?? 'user'} disabled />
       </div>
       <div className="mt-6">
-        <Textarea label="BIO" placeholder="Marine researcher, coastal engineer, or curious explorer…" />
+        <Textarea
+          label="BIO"
+          placeholder="Marine researcher, coastal engineer, or curious explorer…"
+        />
       </div>
       <div className="mt-6 flex justify-end gap-2">
         <Button variant="ghost" size="sm">
@@ -155,7 +170,11 @@ function ProfilePanel({ user }: { user: ReturnType<typeof useAppStore.getState>[
 
 function DataPanel() {
   const sources = [
-    { id: 'copernicus', label: 'Copernicus Marine Service', category: 'Ocean model & satellite' },
+    {
+      id: 'copernicus',
+      label: 'Copernicus Marine Service',
+      category: 'Ocean model & satellite',
+    },
     { id: 'noaa', label: 'NOAA', category: 'Weather & SST' },
     { id: 'incois', label: 'INCOIS', category: 'PFZ & ocean state' },
     { id: 'ais', label: 'AIS providers', category: 'Vessel tracking' },
@@ -201,8 +220,8 @@ function AIPanel({
   user,
   updatePreferences,
 }: {
-  user: ReturnType<typeof useAppStore.getState>['user'];
-  updatePreferences: (p: Partial<NonNullable<typeof user>['preferences']>) => void;
+  user: UserType | null;
+  updatePreferences: (p: Partial<UserPreferences>) => void;
 }) {
   const prefs = user?.preferences.aiPreferences ?? {
     temperature: 0.7,
@@ -219,7 +238,10 @@ function AIPanel({
 
   return (
     <div>
-      <SectionHeader title="AI Preferences" subtitle="How ORCA's assistant behaves." />
+      <SectionHeader
+        title="AI Preferences"
+        subtitle="How ORCA's assistant behaves."
+      />
 
       <div className="flex flex-col gap-5">
         <div>
@@ -265,8 +287,8 @@ function AppearancePanel({
   user,
   updatePreferences,
 }: {
-  user: ReturnType<typeof useAppStore.getState>['user'];
-  updatePreferences: (p: Partial<NonNullable<typeof user>['preferences']>) => void;
+  user: UserType | null;
+  updatePreferences: (p: Partial<UserPreferences>) => void;
 }) {
   const quality = user?.preferences.quality ?? 'MEDIUM';
   const theme = user?.preferences.theme ?? 'dark';
@@ -322,7 +344,8 @@ function AppearancePanel({
                 {q}
               </div>
               <div className="mt-1 font-mono text-[9px] text-muted-foreground">
-                DPR {QUALITY_PRESETS[q].dpr} · {QUALITY_PRESETS[q].particles} particles
+                DPR {QUALITY_PRESETS[q].dpr} · {QUALITY_PRESETS[q].particles}{' '}
+                particles
               </div>
             </button>
           ))}
@@ -336,8 +359,8 @@ function AccessibilityPanel({
   user,
   updatePreferences,
 }: {
-  user: ReturnType<typeof useAppStore.getState>['user'];
-  updatePreferences: (p: Partial<NonNullable<typeof user>['preferences']>) => void;
+  user: UserType | null;
+  updatePreferences: (p: Partial<UserPreferences>) => void;
 }) {
   const reducedMotion = user?.preferences.reducedMotion ?? false;
   return (
@@ -376,7 +399,13 @@ function PlaceholderPanel({ tab }: { tab: string }) {
 
 // ---------- Helpers ----------
 
-function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
+function SectionHeader({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle?: string;
+}) {
   return (
     <div className="mb-6">
       <h2 className="font-display text-xl font-semibold text-white">{title}</h2>
@@ -403,7 +432,9 @@ function ToggleRow({
       <div className="min-w-0 flex-1">
         <div className="text-sm text-white">{label}</div>
         {description && (
-          <div className="mt-0.5 text-[11px] text-muted-foreground">{description}</div>
+          <div className="mt-0.5 text-[11px] text-muted-foreground">
+            {description}
+          </div>
         )}
       </div>
       <button
@@ -412,9 +443,7 @@ function ToggleRow({
         aria-checked={checked}
         className={cn(
           'relative h-6 w-11 shrink-0 rounded-full border transition-colors',
-          checked
-            ? 'border-cyan/60 bg-cyan/30'
-            : 'border-white/10 bg-white/5'
+          checked ? 'border-cyan/60 bg-cyan/30' : 'border-white/10 bg-white/5'
         )}
       >
         <span

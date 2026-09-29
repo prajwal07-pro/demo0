@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/Button';
 import { ChatMessage } from '@/components/chat/ChatMessage';
 import { ChatInput } from '@/components/chat/ChatInput';
 import { AgentPanel } from '@/components/chat/AgentPanel';
-import { useAppStore, useChat } from '@/store/useAppStore';
+import { useChat } from '@/store/useAppStore';
 import { aiService } from '@/services/aiService';
 import { isDev } from '@/services/apiClient';
 import type { ChatMessage as ChatMessageType, DataSource } from '@/types';
@@ -28,19 +28,22 @@ import type { ChatMessage as ChatMessageType, DataSource } from '@/types';
  *   Left: conversations & context
  *   Center: chat stream + input
  *   Right: agents & evidence
- *
- * Mobile: single-column chat with bottom sheet for agents/sources.
  */
 export default function AIAssistant() {
-  const { conversations, activeConversationId, isStreaming, addConversation, updateConversation, setIsStreaming } =
-    useChat();
-  const user = useAppStore((s) => s.user);
+  const {
+    conversations,
+    activeConversationId,
+    isStreaming,
+    addConversation,
+    updateConversation,
+    setIsStreaming,
+  } = useChat();
 
   const [messages, setMessages] = React.useState<ChatMessageType[]>([]);
   const [sources, setSources] = React.useState<DataSource[]>([]);
-  const [agentStatuses, setAgentStatuses] = React.useState<Awaited<
-    ReturnType<typeof aiService.getAgentStatuses>
-  >>([]);
+  const [agentStatuses, setAgentStatuses] = React.useState<
+    Awaited<ReturnType<typeof aiService.getAgentStatuses>>
+  >([]);
   const scrollRef = React.useRef<HTMLDivElement>(null);
   const abortRef = React.useRef<AbortController | null>(null);
 
@@ -123,23 +126,22 @@ export default function AIAssistant() {
         {
           message: text,
           conversationId: activeConversationId ?? undefined,
-          context: user
-            ? {
-                // could attach current map context here
-              }
-            : undefined,
         },
         (chunk) => {
           if (chunk.type === 'text' && chunk.content) {
             buffer += chunk.content;
             setMessages((prev) =>
-              prev.map((m) => (m.id === assistantId ? { ...m, content: buffer } : m))
+              prev.map((m) =>
+                m.id === assistantId ? { ...m, content: buffer } : m
+              )
             );
           } else if (chunk.type === 'source' && chunk.source) {
-            setSources((prev) => [...prev, chunk.source!]);
+            const src = chunk.source;
+            setSources((prev) => [...prev, src]);
           } else if (chunk.type === 'agent' && chunk.agent) {
+            const agent = chunk.agent;
             setAgentStatuses((prev) =>
-              prev.map((a) => (a.id === chunk.agent!.id ? chunk.agent! : a))
+              prev.map((a) => (a.id === agent.id ? agent : a))
             );
           }
         },
@@ -194,8 +196,14 @@ export default function AIAssistant() {
               badge="3"
               variant="error"
             />
-            <SideLink icon={<FlaskConical className="h-3.5 w-3.5" />} label="Saved Analyses" />
-            <SideLink icon={<GraduationCap className="h-3.5 w-3.5" />} label="Learning" />
+            <SideLink
+              icon={<FlaskConical className="h-3.5 w-3.5" />}
+              label="Saved Analyses"
+            />
+            <SideLink
+              icon={<GraduationCap className="h-3.5 w-3.5" />}
+              label="Learning"
+            />
           </Section>
 
           <Section title="CONVERSATIONS">
@@ -230,7 +238,9 @@ export default function AIAssistant() {
         <div className="flex items-center gap-3 px-4 lg:px-6 h-14 border-b border-white/5 bg-abyss/40 backdrop-blur-md">
           <div className="flex items-center gap-2">
             <div className="h-7 w-7 rounded-md border border-cyan/30 bg-cyan/10 flex items-center justify-center">
-              <span className="font-mono text-[10px] font-bold text-cyan">AI</span>
+              <span className="font-mono text-[10px] font-bold text-cyan">
+                AI
+              </span>
             </div>
             <div>
               <div className="font-display text-sm font-semibold text-white">
@@ -290,7 +300,13 @@ export default function AIAssistant() {
 
 // ---------- Subcomponents ----------
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="mb-4">
       <div className="px-2 py-1.5 font-mono text-[9px] tracking-widest text-cyan/50">

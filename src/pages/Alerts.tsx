@@ -23,9 +23,6 @@ import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 /**
  * Alerts — marine alerts & risk monitoring workspace.
- *
- * Data integrity: alerts come from store (populated by a service); when no
- * backend is connected and we are not in dev, shows DATA UNAVAILABLE.
  */
 export default function Alerts() {
   const alerts = useAppStore((s) => s.alerts);
@@ -76,9 +73,12 @@ export default function Alerts() {
         >
           Risk & Alerts
         </motion.h1>
-        <motion.p variants={fadeInUp} className="mt-3 max-w-2xl text-muted-foreground">
-          Active marine warnings, storm advisories, and safety alerts
-          from authoritative sources — displayed in real time.
+        <motion.p
+          variants={fadeInUp}
+          className="mt-3 max-w-2xl text-muted-foreground"
+        >
+          Active marine warnings, storm advisories, and safety alerts from
+          authoritative sources — displayed in real time.
         </motion.p>
       </motion.div>
 
@@ -118,15 +118,16 @@ export default function Alerts() {
           active={filter === 'all'}
           onClick={() => setFilter('all')}
         />
-        {(['emergency', 'critical', 'warning', 'info'] as AlertSeverity[]).map((s) => (
-          <FilterChip
-            key={s}
-            label={s.toUpperCase()}
-            active={filter === s}
-            onClick={() => setFilter(s)}
-            variant={severityVariant(s)}
-          />
-        ))}
+        {(['emergency', 'critical', 'warning', 'info'] as AlertSeverity[]).map(
+          (s) => (
+            <FilterChip
+              key={s}
+              label={s.toUpperCase()}
+              active={filter === s}
+              onClick={() => setFilter(s)}
+            />
+          )
+        )}
       </div>
 
       {/* Dev notice */}
@@ -199,12 +200,10 @@ function FilterChip({
   label,
   active,
   onClick,
-  variant,
 }: {
   label: string;
   active: boolean;
   onClick: () => void;
-  variant?: BadgeProps['variant'];
 }) {
   return (
     <button
@@ -217,7 +216,6 @@ function FilterChip({
       )}
     >
       {label}
-      {variant && <span className="sr-only"> filter</span>}
     </button>
   );
 }
@@ -303,9 +301,17 @@ function AlertRow({ alert }: { alert: MarineAlert }) {
             )}
             aria-label={ack ? 'Unacknowledge' : 'Acknowledge'}
           >
-            {ack ? <BellOff className="h-3.5 w-3.5" /> : <Bell className="h-3.5 w-3.5" />}
+            {ack ? (
+              <BellOff className="h-3.5 w-3.5" />
+            ) : (
+              <Bell className="h-3.5 w-3.5" />
+            )}
           </button>
-          <Button variant="ghost" size="sm" rightIcon={<ExternalLink className="h-3 w-3" />}>
+          <Button
+            variant="ghost"
+            size="sm"
+            rightIcon={<ExternalLink className="h-3 w-3" />}
+          >
             View
           </Button>
         </div>
@@ -328,10 +334,4 @@ function EmptyState() {
       </p>
     </div>
   );
-}
-
-function severityVariant(s: AlertSeverity): BadgeProps['variant'] {
-  if (s === 'emergency' || s === 'critical') return 'error';
-  if (s === 'warning') return 'warning';
-  return 'info';
 }

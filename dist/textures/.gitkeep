@@ -1,0 +1,17 @@
+# ORCA Texture Assets
+#
+# Earth textures and environment maps:
+#
+#   earth-day.jpg         — day map (albedo), sRGB
+#   earth-bump.jpg        — bump/displacement map
+#   earth-specular.jpg    — specular / roughness map (oceans shine)
+#   earth-clouds.png      — cloud layer with alpha, PNG
+#   earth-night.jpg       — night lights (emissive)
+#   stars.jpg             — starfield / environment background
+#
+# Recommended specs:
+#   - Equirectangular projection (2:1)
+#   - Max resolution: 8192x4096 for hero, 4096x2048 for standard
+#   - sRGB color space for albedo / emissive maps
+#   - Linear color space for bump / specular / roughness
+#   - KTX2 or WebP for delivery where possible

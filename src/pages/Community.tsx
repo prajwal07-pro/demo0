@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { motion } from 'framer-motion';
 import {
   Users,
@@ -12,7 +11,6 @@ import {
   Sparkles,
   Hash,
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
@@ -63,7 +61,7 @@ const FEED: Post[] = [
     timestamp: '1d ago',
     title: 'PFZ verification — Kochi offshore',
     content:
-      'Ground-truthed yesterday\'s PFZ forecast. Catch rates were 3x above baseline in the predicted zone. Model is holding up well.',
+      "Ground-truthed yesterday's PFZ forecast. Catch rates were 3x above baseline in the predicted zone. Model is holding up well.",
     tags: ['pfz', 'validation', 'fisheries'],
     region: 'Kochi',
     reactions: 156,
@@ -82,8 +80,6 @@ const TRENDING_TOPICS = [
 
 /**
  * Community — research network and observations feed.
- * Combines the vibe of a research platform, GitHub, and Discord — but
- * native to ORCA. Data integrity: user posts are clearly attributed.
  */
 export default function Community() {
   return (
@@ -150,7 +146,6 @@ export default function Community() {
 
         {/* Right sidebar */}
         <aside className="flex flex-col gap-4">
-          {/* Community stats */}
           <div className="rounded-xl border border-white/10 bg-white/[0.015] p-5">
             <div className="flex items-center gap-2 mb-4">
               <Users className="h-4 w-4 text-cyan" />
@@ -166,7 +161,6 @@ export default function Community() {
             </div>
           </div>
 
-          {/* Trending topics */}
           <div className="rounded-xl border border-white/10 bg-white/[0.015] p-5">
             <div className="flex items-center gap-2 mb-4">
               <TrendingUp className="h-4 w-4 text-cyan" />
@@ -189,7 +183,6 @@ export default function Community() {
             </ul>
           </div>
 
-          {/* Suggested */}
           <div className="rounded-xl border border-cyan/20 bg-cyan/[0.03] p-5">
             <div className="flex items-center gap-2 mb-3">
               <Sparkles className="h-4 w-4 text-cyan" />
@@ -198,7 +191,8 @@ export default function Community() {
               </div>
             </div>
             <p className="text-sm text-white leading-snug">
-              Join the <span className="text-cyan">Bay of Bengal SST Working Group</span>
+              Join the{' '}
+              <span className="text-cyan">Bay of Bengal SST Working Group</span>
             </p>
             <p className="mt-2 text-[11px] text-muted-foreground">
               42 researchers collaborating on monsoon-ocean coupling.
@@ -223,7 +217,6 @@ function PostCard({ post }: { post: Post }) {
 
   return (
     <article className="rounded-xl border border-white/10 bg-white/[0.015] p-5 hover:border-cyan/20 transition-colors">
-      {/* Author header */}
       <header className="flex items-center gap-3 mb-4">
         <div className="h-10 w-10 rounded-full bg-gradient-to-br from-cyan to-teal flex items-center justify-center text-abyss font-display font-bold text-xs shrink-0">
           {post.author.initials}
@@ -251,13 +244,13 @@ function PostCard({ post }: { post: Post }) {
         </Badge>
       </header>
 
-      {/* Content */}
       <h3 className="font-display text-lg font-semibold text-white mb-2">
         {post.title}
       </h3>
-      <p className="text-sm text-muted-foreground leading-relaxed">{post.content}</p>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        {post.content}
+      </p>
 
-      {/* Tags */}
       <div className="mt-4 flex flex-wrap gap-1.5">
         {post.tags.map((t) => (
           <span
@@ -269,7 +262,6 @@ function PostCard({ post }: { post: Post }) {
         ))}
       </div>
 
-      {/* Actions */}
       <footer className="mt-5 pt-4 border-t border-white/5 flex items-center gap-4">
         <button className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-cyan transition-colors">
           <ThumbsUp className="h-3.5 w-3.5" />
@@ -304,6 +296,3 @@ function Stat({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
-
-// reserved for future use
-void cn;

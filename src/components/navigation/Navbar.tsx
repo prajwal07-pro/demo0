@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
+import {
+  motion,
+  useScroll,
+  useMotionValueEvent,
+  AnimatePresence,
+} from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import {
   Search,
@@ -21,11 +26,20 @@ import { useUI, useUser } from '@/store/useAppStore';
 import { useCommandPaletteShortcut } from '@/hooks/useKeyboard';
 
 // ---------- ORCA Logo ----------
-export function OrcaLogo({ className, showText = true }: { className?: string; showText?: boolean }) {
+export function OrcaLogo({
+  className,
+  showText = true,
+}: {
+  className?: string;
+  showText?: boolean;
+}) {
   return (
-    <Link to="/" className={cn('flex items-center gap-2.5 group', className)} aria-label="ORCA Home">
+    <Link
+      to="/"
+      className={cn('flex items-center gap-2.5 group', className)}
+      aria-label="ORCA Home"
+    >
       <div className="relative flex h-8 w-8 items-center justify-center">
-        {/* Orca silhouette / abstract mark */}
         <svg
           viewBox="0 0 32 32"
           fill="none"
@@ -73,7 +87,11 @@ export function OrcaLogo({ className, showText = true }: { className?: string; s
 }
 
 // ---------- Nav Link ----------
-function NavLink({ item }: { item: { label: string; href: string; badge?: string } }) {
+function NavLink({
+  item,
+}: {
+  item: { label: string; href: string; badge?: string };
+}) {
   const location = useLocation();
   const isActive =
     location.pathname === item.href ||
@@ -181,14 +199,26 @@ function UserMenu() {
               </p>
               {user && (
                 <div className="mt-2 flex items-center gap-2">
-                  <Badge variant="default" size="sm">LVL {user.level}</Badge>
-                  <Badge variant="teal" size="sm">{user.xp} XP</Badge>
+                  <Badge variant="default" size="sm">
+                    LVL {user.level}
+                  </Badge>
+                  <Badge variant="teal" size="sm">
+                    {user.xp} XP
+                  </Badge>
                 </div>
               )}
             </div>
             <div className="py-1">
-              <MenuLink to="/profile" icon={<UserIcon className="h-3.5 w-3.5" />} label="Profile" />
-              <MenuLink to="/settings" icon={<Settings className="h-3.5 w-3.5" />} label="Settings" />
+              <MenuLink
+                to="/profile"
+                icon={<UserIcon className="h-3.5 w-3.5" />}
+                label="Profile"
+              />
+              <MenuLink
+                to="/settings"
+                icon={<Settings className="h-3.5 w-3.5" />}
+                label="Settings"
+              />
             </div>
             <div className="py-1 border-t border-white/5">
               <button
@@ -206,7 +236,15 @@ function UserMenu() {
   );
 }
 
-function MenuLink({ to, icon, label }: { to: string; icon: React.ReactNode; label: string }) {
+function MenuLink({
+  to,
+  icon,
+  label,
+}: {
+  to: string;
+  icon: React.ReactNode;
+  label: string;
+}) {
   return (
     <Link
       to={to}
@@ -253,7 +291,6 @@ export function Navbar() {
 
   useCommandPaletteShortcut(toggleCommandPalette);
 
-  // Lock body scroll when mobile nav open
   React.useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => {
@@ -277,8 +314,10 @@ export function Navbar() {
         <div className="flex items-center gap-4 px-4 lg:px-6 h-16">
           <OrcaLogo />
 
-          {/* Desktop nav */}
-          <nav className="hidden xl:flex items-center gap-1 ml-6" aria-label="Main navigation">
+          <nav
+            className="hidden xl:flex items-center gap-1 ml-6"
+            aria-label="Main navigation"
+          >
             {PRIMARY_NAV.slice(0, 7).map((item) => (
               <NavLink key={item.href} item={item} />
             ))}
@@ -300,7 +339,6 @@ export function Navbar() {
             Launch ORCA
           </Button>
 
-          {/* Mobile menu trigger */}
           <button
             className="xl:hidden h-9 w-9 rounded-lg border border-white/10 bg-white/[0.03] flex items-center justify-center hover:border-cyan/40 transition-colors"
             onClick={() => setMobileOpen(true)}
@@ -310,17 +348,13 @@ export function Navbar() {
           </button>
         </div>
 
-        {/* Subtle top data stream */}
         {scrolled && (
           <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan/40 to-transparent" />
         )}
       </motion.header>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
-        {mobileOpen && (
-          <MobileDrawer onClose={() => setMobileOpen(false)} />
-        )}
+        {mobileOpen && <MobileDrawer onClose={() => setMobileOpen(false)} />}
       </AnimatePresence>
     </>
   );

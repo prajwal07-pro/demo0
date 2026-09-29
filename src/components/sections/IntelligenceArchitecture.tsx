@@ -35,22 +35,21 @@ const AGENT_ICONS: Record<AgentId, React.ComponentType<{ className?: string }>> 
  * A radial multi-agent visualization. Each agent sits around a central
  * "ORCA Core" hub. Clicking an agent highlights its relationships and
  * displays its role in the pipeline.
- *
- * This is presentation-only — no fabricated data.
  */
 export function IntelligenceArchitecture() {
   const [selected, setSelected] = React.useState<AgentId>('satellite');
   const selectedAgent = AI_AGENTS.find((a) => a.id === selected)!;
 
-  // Position agents in two concentric rings
   const innerRing = AI_AGENTS.slice(0, 5);
   const outerRing = AI_AGENTS.slice(5);
 
   return (
     <section className="relative py-24 lg:py-32 bg-abyss overflow-hidden">
-      {/* Background grid */}
       <div className="absolute inset-0 data-grid opacity-30" aria-hidden="true" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(2,6,23,0.9)_100%)]" aria-hidden="true" />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(2,6,23,0.9)_100%)]"
+        aria-hidden="true"
+      />
 
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Header */}
@@ -61,7 +60,10 @@ export function IntelligenceArchitecture() {
           viewport={{ once: true, margin: '-100px' }}
           variants={staggerContainer}
         >
-          <motion.div variants={fadeInUp} className="flex items-center justify-center gap-3 mb-4">
+          <motion.div
+            variants={fadeInUp}
+            className="flex items-center justify-center gap-3 mb-4"
+          >
             <span className="h-px w-12 bg-cyan/40" />
             <span className="font-mono text-[10px] tracking-[0.3em] text-cyan/70">
               INTELLIGENCE ARCHITECTURE
@@ -88,12 +90,10 @@ export function IntelligenceArchitecture() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-10 items-center">
           {/* Radial visualization */}
           <div className="relative aspect-square max-w-2xl mx-auto w-full">
-            {/* Rings */}
             <div className="absolute inset-0 rounded-full border border-cyan/10" />
             <div className="absolute inset-[15%] rounded-full border border-cyan/15" />
             <div className="absolute inset-[35%] rounded-full border border-cyan/20" />
 
-            {/* Connection lines to selected agent */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none"
               viewBox="0 0 100 100"
@@ -106,7 +106,7 @@ export function IntelligenceArchitecture() {
                 </radialGradient>
               </defs>
               <circle cx="50" cy="50" r="8" fill="url(#coreGlow)" />
-              {[...innerRing, ...outerRing].map((agent, i) => {
+              {[...innerRing, ...outerRing].map((agent) => {
                 const total = AI_AGENTS.length;
                 const idx = AI_AGENTS.indexOf(agent);
                 const angle = (idx / total) * Math.PI * 2 - Math.PI / 2;
@@ -179,7 +179,9 @@ export function IntelligenceArchitecture() {
                     <Icon
                       className={cn(
                         'h-5 w-5 transition-colors',
-                        isSelected ? 'text-cyan' : 'text-muted-foreground group-hover:text-cyan'
+                        isSelected
+                          ? 'text-cyan'
+                          : 'text-muted-foreground group-hover:text-cyan'
                       )}
                     />
                     {isSelected && (
@@ -256,7 +258,13 @@ export function IntelligenceArchitecture() {
   );
 }
 
-function StageChip({ label, active = false }: { label: string; active?: boolean }) {
+function StageChip({
+  label,
+  active = false,
+}: {
+  label: string;
+  active?: boolean;
+}) {
   return (
     <span
       className={cn(

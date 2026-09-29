@@ -2,50 +2,36 @@ import * as React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import maplibregl, { type Map as MapLibreMap } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import {
-  Layers,
-  Radar,
-  Search,
-  Maximize2,
-  Ship,
-  Waves,
-  Fish,
-  Wind,
-  Thermometer,
-  Droplets,
-  X,
-  ChevronRight,
-  AlertTriangle,
-} from 'lucide-react';
+import { Layers, Radar, Search, Maximize2, X, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
 import { useMap as useMapState } from '@/store/useAppStore';
-import { MAP_DEFAULTS, OCEAN_LAYERS, VESSEL_TYPES } from '@/lib/constants';
+import {
+  MAP_DEFAULTS,
+  OCEAN_LAYERS,
+  VESSEL_TYPES,
+  type OceanLayerId,
+} from '@/lib/constants';
 
 /**
  * LiveMap — full-screen professional marine GIS.
- *
- * Features:
- *  - MapLibre GL base map (public tiles by default)
- *  - Layer panel to toggle ocean layers (rendered as overlays when data available)
- *  - Vessel filter panel
- *  - Selected vessel details panel
- *  - HUD frame with coordinates + cursor position
- *
- * DATA INTEGRITY:
- *  - Vessel markers are ONLY rendered when real vessel data is present in the store.
- *  - Ocean layers only render when the corresponding dataset has been fetched.
- *  - When data is unavailable, panels explicitly show "DATA UNAVAILABLE".
  */
 export default function LiveMap() {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const mapRef = React.useRef<MapLibreMap | null>(null);
-  const [cursor, setCursor] = React.useState({ lat: MAP_DEFAULTS.center[1], lng: MAP_DEFAULTS.center[0] });
+  const [cursor, setCursor] = React.useState({
+    lat: MAP_DEFAULTS.center[1],
+    lng: MAP_DEFAULTS.center[0],
+  });
   const [layersOpen, setLayersOpen] = React.useState(true);
 
-  const { viewState, activeLayers, setActiveLayers, selectedVessel, setSelectedVessel } =
-    useMapState();
+  const {
+    viewState,
+    activeLayers,
+    setActiveLayers,
+    selectedVessel,
+    setSelectedVessel,
+  } = useMapState();
 
   // ---------- Init Map ----------
   React.useEffect(() => {
@@ -53,7 +39,9 @@ export default function LiveMap() {
 
     const map = new maplibregl.Map({
       container: containerRef.current,
-      style: import.meta.env.VITE_MAP_STYLE_URL ?? 'https://demotiles.maplibre.org/style.json',
+      style:
+        import.meta.env.VITE_MAP_STYLE_URL ??
+        'https://demotiles.maplibre.org/style.json',
       center: [viewState.center.lng, viewState.center.lat],
       zoom: viewState.zoom,
       minZoom: MAP_DEFAULTS.minZoom,
@@ -78,10 +66,11 @@ export default function LiveMap() {
 
   // ---------- Toggle Layers ----------
   const toggleLayer = (id: string) => {
-    if (activeLayers.includes(id as never)) {
-      setActiveLayers(activeLayers.filter((l) => l !== id) as never);
+    const layerId = id as OceanLayerId;
+    if (activeLayers.includes(layerId)) {
+      setActiveLayers(activeLayers.filter((l: OceanLayerId) => l !== layerId));
     } else {
-      setActiveLayers([...activeLayers, id as never]);
+      setActiveLayers([...activeLayers, layerId]);
     }
   };
 
@@ -160,7 +149,6 @@ export default function LiveMap() {
                 {OCEAN_LAYERS.map((layer) => (
                   <LayerRow
                     key={layer.id}
-                    id={layer.id}
                     label={layer.label}
                     color={layer.color}
                     active={activeLayers.includes(layer.id)}
@@ -182,7 +170,9 @@ export default function LiveMap() {
                       className="h-2 w-2 rounded-full"
                       style={{ backgroundColor: vt.color }}
                     />
-                    <span className="text-xs text-muted-foreground flex-1">{vt.label}</span>
+                    <span className="text-xs text-muted-foreground flex-1">
+                      {vt.label}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -194,7 +184,8 @@ export default function LiveMap() {
               </div>
               <p className="text-[11px] text-muted-foreground leading-relaxed px-2">
                 Live AIS and ocean data streams require a connected backend.
-                When unavailable, layers remain disabled and are clearly marked.
+                When unavailable, layers remain disabled and are clearly
+                marked.
               </p>
             </div>
           </motion.aside>
@@ -234,11 +225,23 @@ export default function LiveMap() {
 
             <div className="flex-1 overflow-y-auto p-4 no-scrollbar">
               <div className="grid grid-cols-2 gap-3">
-                <DetailField label="TYPE" value={selectedVessel.type.toUpperCase()} />
+                <DetailField
+                  label="TYPE"
+                  value={selectedVessel.type.toUpperCase()}
+                />
                 <DetailField label="FLAG" value={selectedVessel.flag ?? '—'} />
-                <DetailField label="SPEED" value={`${selectedVessel.speed.toFixed(1)} kn`} />
-                <DetailField label="HEADING" value={`${selectedVessel.heading.toFixed(0)}°`} />
-                <DetailField label="DESTINATION" value={selectedVessel.destination ?? '—'} />
+                <DetailField
+                  label="SPEED"
+                  value={`${selectedVessel.speed.toFixed(1)} kn`}
+                />
+                <DetailField
+                  label="HEADING"
+                  value={`${selectedVessel.heading.toFixed(0)}°`}
+                />
+                <DetailField
+                  label="DESTINATION"
+                  value={selectedVessel.destination ?? '—'}
+                />
                 <DetailField
                   label="LAST UPDATE"
                   value={new Date(selectedVessel.lastUpdate).toLocaleTimeString()}
@@ -259,7 +262,12 @@ export default function LiveMap() {
               </div>
 
               <div className="mt-6 pt-5 border-t border-white/5">
-                <Button variant="secondary" size="sm" fullWidth rightIcon={<ChevronRight className="h-3.5 w-3.5" />}>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  fullWidth
+                  rightIcon={<ChevronRight className="h-3.5 w-3.5" />}
+                >
                   View Full Vessel Profile
                 </Button>
               </div>
@@ -298,7 +306,12 @@ export default function LiveMap() {
           <button
             className="h-9 w-9 rounded-lg border border-white/10 bg-abyss/80 backdrop-blur-md flex items-center justify-center hover:border-cyan/40"
             aria-label="Reset view"
-            onClick={() => mapRef.current?.flyTo({ center: MAP_DEFAULTS.center, zoom: MAP_DEFAULTS.zoom })}
+            onClick={() =>
+              mapRef.current?.flyTo({
+                center: MAP_DEFAULTS.center,
+                zoom: MAP_DEFAULTS.zoom,
+              })
+            }
           >
             <Maximize2 className="h-3.5 w-3.5 text-muted-foreground" />
           </button>
@@ -311,13 +324,11 @@ export default function LiveMap() {
 // ---------- Subcomponents ----------
 
 function LayerRow({
-  id,
   label,
   color,
   active,
   onToggle,
 }: {
-  id: string;
   label: string;
   color: string;
   active: boolean;
@@ -338,7 +349,12 @@ function LayerRow({
           className="h-2.5 w-2.5 rounded-sm"
           style={{ backgroundColor: color }}
         />
-        <span className={cn('flex-1 text-xs', active ? 'text-white' : 'text-muted-foreground')}>
+        <span
+          className={cn(
+            'flex-1 text-xs',
+            active ? 'text-white' : 'text-muted-foreground'
+          )}
+        >
           {label}
         </span>
         <span
@@ -364,7 +380,12 @@ function DetailField({
   accent?: 'ok' | 'warning' | 'critical';
 }) {
   return (
-    <div className={cn('rounded-lg border border-white/5 bg-white/[0.015] p-2.5', wide && 'col-span-2')}>
+    <div
+      className={cn(
+        'rounded-lg border border-white/5 bg-white/[0.015] p-2.5',
+        wide && 'col-span-2'
+      )}
+    >
       <div className="font-mono text-[9px] tracking-widest text-cyan/60 mb-1">
         {label}
       </div>

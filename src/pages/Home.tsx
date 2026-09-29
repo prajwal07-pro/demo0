@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Hero } from '@/components/sections/Hero';
 import { TelemetryBar } from '@/components/sections/TelemetryBar';
 import { WhyOrca } from '@/components/sections/WhyOrca';

@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useRef } from 'react';
+import { useEffect, useRef, useState as useSafeState } from 'react';
 
 type KeyHandler = (event: KeyboardEvent) => void;
 
@@ -44,15 +44,13 @@ export function useKeyboardKey(
   useEffect(() => {
     if (!enabled || typeof window === 'undefined') return;
 
-    const targetEl = target ?? document;
+    const targetEl: EventTarget = target ?? document;
 
     const listener = (event: Event) => {
       const e = event as KeyboardEvent;
 
-      // Check key match (case-insensitive)
       if (e.key.toLowerCase() !== key.toLowerCase()) return;
 
-      // Check modifiers
       if (meta !== undefined && e.metaKey !== meta) return;
       if (ctrl !== undefined && e.ctrlKey !== ctrl) return;
       if (shift !== undefined && e.shiftKey !== shift) return;
@@ -124,7 +122,6 @@ export function useSearchShortcut(handler: () => void, enabled = true) {
     if (!enabled || typeof window === 'undefined') return;
 
     const listener = (event: KeyboardEvent) => {
-      // Don't trigger if user is typing in an input
       const target = event.target as HTMLElement;
       if (
         target.tagName === 'INPUT' ||
@@ -147,7 +144,6 @@ export function useSearchShortcut(handler: () => void, enabled = true) {
 
 /**
  * General purpose keyboard handler that receives all keydown events.
- * Useful for custom shortcut systems.
  */
 export function useKeyboard(
   handler: KeyHandler,
@@ -166,7 +162,7 @@ export function useKeyboard(
   useEffect(() => {
     if (!enabled || typeof window === 'undefined') return;
 
-    const targetEl = target ?? document;
+    const targetEl: EventTarget = target ?? document;
 
     const listener = (event: Event) => {
       const e = event as KeyboardEvent;
@@ -208,6 +204,3 @@ export function useKeyPress(targetKey: string): boolean {
 
   return isPressed;
 }
-
-// Internal helper to avoid importing useState
-import { useState as useSafeState } from 'react';
